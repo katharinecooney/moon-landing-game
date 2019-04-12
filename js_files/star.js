@@ -1,6 +1,6 @@
 function Star(canvas) {
-  this.x = x;
-  this.y = y;
+  this.x = null;
+  this.y = null;
   this.speed = 1;
   this.direction = -2;
   this.size = 25;

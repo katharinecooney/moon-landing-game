@@ -1,8 +1,8 @@
 'use strict';
 
 function Rocket(canvas) {
-  this.x = x;
-  this.y = y;
+  this.x = null;
+  this.y = null;
   this.size = 75;
   this.speed = 0;
   this.direction = 0;
@@ -32,11 +32,11 @@ Rocket.prototype.countStarsCaught = function() {
 }
 
 // check 'collisions' with star
-Rocket.prototype.checkForStars() = function() {
+Rocket.prototype.checkForStars = function() {
 
 }
 
 // will move the rocket to the moon
-Rocket.prototype.victory() = function() {
+Rocket.prototype.victory = function() {
 
 }
