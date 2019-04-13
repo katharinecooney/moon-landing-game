@@ -17,7 +17,7 @@ Game.prototype.startLoop = function() {
 
   let loop = () => {
     if(Math.random() > .90) {
-      let randomY = (Math.random() * this.canvas.height - 12.5) + 12.5;
+      let randomY = (Math.random() * this.canvas.height);
       this.stars.push(new Star(this.canvas, randomY));
     }
 
@@ -36,6 +36,9 @@ Game.prototype.startLoop = function() {
 // places the rocket and each star on the canvas
 Game.prototype.drawCanvas = function() {
   this.rocket.draw();
+  this.stars.forEach(function(star){
+    star.draw();
+  });
 }
 
 
@@ -48,6 +51,9 @@ Game.prototype.clearCanvas = function() {
 // will call the update function for both the rocket and the stars
 Game.prototype.updateCanvas = function() {
   this.rocket.update();
+  this.stars.forEach(function(star){
+    star.update();
+  });
 }
 
 
