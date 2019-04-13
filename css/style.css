@@ -34,14 +34,14 @@
   justify-content: space-between;
 }
 
-.star-counter {
+#star-counter {
   height: 50px;
   flex: 1;
   border: 1px solid black;
   text-align: left;
 }
 
-.timer {
+#timer {
   height: 50px;
   flex: 1;
   border: 1px solid black;

@@ -27,8 +27,10 @@ Game.prototype.startLoop = function() {
     this.updateCanvas();
     this.drawCanvas();
     this.checkIfStarsCaught();
-   
     
+    const starCounter = document.getElementById('star-counter');
+    starCounter.innerHTML = this.rocket.starCounter;
+   
     window.requestAnimationFrame(loop);
   }
   window.requestAnimationFrame(loop); 

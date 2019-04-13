@@ -14,9 +14,6 @@ function Rocket(canvas) {
 
 // puts the rocket on the canvas
 Rocket.prototype.draw = function() {
-  // this.ctx.fillStyle = 'green';
-  // this.ctx.fillRect(this.x - this.size / 2, this.y - this.size / 2, this.size, this.size);
-
   let img = document.createElement('img');
   img.src = '../images/start-up.png';
   this.ctx.drawImage(img, this.x, this.y, this.size, this.size);
@@ -28,11 +25,12 @@ Rocket.prototype.update = function() {
   this.x = this.x + this.xDirection * this.speed;
 }
 
-// we will pass a direction (up, down, left, right) and it will be saved as the rocket's new direction
+// we will pass a direction (up, down) from main.js and it will be saved as the rocket's new y direction
 Rocket.prototype.setYdirection = function(newDirection) {
   this.yDirection = newDirection;
 }
 
+// we will pass a direction (left, right) from main.js and it will be saved as the rocket's new x direction
 Rocket.prototype.setXdirection = function(newDirection) {
   this.xDirection = newDirection;
 }
@@ -40,6 +38,10 @@ Rocket.prototype.setXdirection = function(newDirection) {
 // will add a star to this.starCounter
 Rocket.prototype.countStarsCaught = function() {
   this.starCounter++;
+}
+
+Rocket.prototype.shareStarCounter = function() {
+  return this.starCounter;
 }
 
 // check 'collisions' with star
