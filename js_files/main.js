@@ -50,7 +50,7 @@ function main(){
     const canvas = document.querySelector('canvas');
     canvas.setAttribute('width', width);
     canvas.setAttribute('height', height);
-    canvas.style.background = "url('https://i.pinimg.com/originals/60/1c/71/601c715eee01e1faeda7ecc9ecf1677c.jpg') center / cover no-repeat";
+    canvas.style.background = "linear-gradient( rgba(2, 1, 8, 0.5),   rgba(3, 1, 15, 0.5) ),   url('../images/4k-wallpaper-astro-astrology-1146134.jpg') center / cover no-repeat  ";
 
 
     const game = new Game(canvas);
