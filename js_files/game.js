@@ -15,7 +15,9 @@ Game.prototype.startLoop = function() {
   this.rocket = new Rocket(this.canvas);
   this.stars = [];
 
+  // 'animates' the game
   let loop = () => {
+    // adds a new star randomly to the canvas
     if(Math.random() > .96) {
       let randomY = (Math.random() * this.canvas.height);
       this.stars.push(new Star(this.canvas, randomY));
@@ -28,11 +30,13 @@ Game.prototype.startLoop = function() {
     this.drawCanvas();
     this.checkIfStarsCaught();
     
+    // updates the starCounter on the screen
     const starCounter = document.getElementById('star-counter');
     starCounter.innerHTML = this.rocket.starCounter;
    
     window.requestAnimationFrame(loop);
   }
+
   window.requestAnimationFrame(loop); 
 }
 
@@ -72,15 +76,19 @@ Game.prototype.checkIfStarsCaught = function() {
       
       if(this.rocket.starCounter === 3) {
         this.gameOver = true;
-        this.onGameOver();
+        // this.starCounter.style.color = 'red';
+        setTimeout(this.onGameOver, 500);
       }
     }
   });
 }
 
+
 // to access the buildGameOver function from main.js, we need to create a function in this file that can receive buildGameOver as a callback and save it by another name, which we can use in this file
 
 // i think we can't access that function directly because game.js loads before main.js --> main js can access functions directly from game.js because game.js loads first! 
+
+
 Game.prototype.callGameOverScreen = function(callback) {  
    this.onGameOver = callback;
 }
