@@ -5,8 +5,8 @@ function Rocket(canvas) {
   this.ctx = this.canvas.getContext('2d');
   this.x = 50;
   this.y = 100;
-  this.size = 30;
-  this.speed = 2;
+  this.size = 50;
+  this.speed = 8;
   this.xDirection = 0;
   this.yDirection = 0;
   
@@ -15,8 +15,12 @@ function Rocket(canvas) {
 
 // puts the rocket on the canvas
 Rocket.prototype.draw = function() {
-  this.ctx.fillStyle = 'green';
-  this.ctx.fillRect(this.x - this.size / 2, this.y - this.size / 2, this.size, this.size);
+  // this.ctx.fillStyle = 'green';
+  // this.ctx.fillRect(this.x - this.size / 2, this.y - this.size / 2, this.size, this.size);
+
+  let img = document.createElement('img');
+  img.src = '../images/start-up.png';
+  this.ctx.drawImage(img, this.x, this.y, this.size, this.size);
 }
 
 // updates the rocket's x and y positions
@@ -48,3 +52,5 @@ Rocket.prototype.checkForStars = function() {
 Rocket.prototype.victory = function() {
 
 }
+
+

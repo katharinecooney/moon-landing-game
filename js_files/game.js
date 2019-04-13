@@ -16,11 +16,11 @@ Game.prototype.startLoop = function() {
   this.stars = [];
 
   let loop = () => {
-    if(Math.random() > .90) {
+    if(Math.random() > .96) {
       let randomY = (Math.random() * this.canvas.height);
       this.stars.push(new Star(this.canvas, randomY));
     }
-
+  
     console.log('hola! i am stuck in a loop!');
 
     this.clearCanvas();
@@ -28,6 +28,7 @@ Game.prototype.startLoop = function() {
     this.drawCanvas();
     this.checkIfStarsCaught();
    
+    
     window.requestAnimationFrame(loop);
   }
   window.requestAnimationFrame(loop); 
@@ -65,3 +66,4 @@ Game.prototype.checkIfStarsCaught = function() {
 Game.prototype.gameOverCallback = function() {
 
 }
+
