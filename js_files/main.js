@@ -33,8 +33,11 @@ function main(){
   function buildGameScreen() {
     let gameScreen = buildDom(`
     <section id='game-container'>
-      <canvas>
-      </canvas>
+      <section id="game-info">
+        <section class="star-counter">13</section>
+        <section class="timer">40</section>
+      </section>
+      <canvas></canvas>
     </section>
     `);
     
