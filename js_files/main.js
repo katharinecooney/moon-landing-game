@@ -29,7 +29,6 @@ function main(){
       buildGameScreen();
     });
   }
-
   
   function buildGameScreen() {
     let gameScreen = buildDom(`
@@ -48,11 +47,12 @@ function main(){
 
     canvas.setAttribute('width', width);
     canvas.setAttribute('height', height);
+    canvas.style.background = "url('https://i.pinimg.com/originals/60/1c/71/601c715eee01e1faeda7ecc9ecf1677c.jpg') center / cover no-repeat";
 
     const game = new Game(canvas);
     game.startLoop();
 
-    
+
     game.callGameOverScreen(buildGameOverScreen);
 
     document.addEventListener('keydown', function(event){
