@@ -61,9 +61,29 @@ Game.prototype.updateCanvas = function() {
 // will check if rocket caught any stars
 Game.prototype.checkIfStarsCaught = function() {
   console.log('looking for stars');
+  this.stars.forEach((star, index) => {
+    const isColliding = this.rocket.checkForStars(star);
+    if(isColliding){
+      this.stars.splice(index, 1);
+      this.rocket.countStarsCaught();
+      console.log('you caught a star!');
+      
+      if(this.rocket.starCounter === 3) {
+        this.gameOver = true;
+        this.onGameOver();
+      }
+    }
+  });
 }
 
-Game.prototype.gameOverCallback = function() {
+// to access the buildGameOver function from main.js, we need to create a function in this file that can receive buildGameOver as a callback and save it by another name, which we can use in this file
+
+// i think we can't access that function directly because game.js loads before main.js --> main js can access functions directly from game.js because game.js loads first! 
+Game.prototype.callGameOverScreen = function(callback) {  
+   this.onGameOver = callback;
+}
+
+Game.prototype.checkDistance = function() {
 
 }
 

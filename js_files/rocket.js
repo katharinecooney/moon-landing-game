@@ -9,7 +9,6 @@ function Rocket(canvas) {
   this.speed = 8;
   this.xDirection = 0;
   this.yDirection = 0;
-  
   this.starCounter = 0;
 }
 
@@ -44,8 +43,12 @@ Rocket.prototype.countStarsCaught = function() {
 }
 
 // check 'collisions' with star
-Rocket.prototype.checkForStars = function() {
-
+Rocket.prototype.checkForStars = function(star) {
+  const collisionRight = this.x + this.size / 2 > star.x - star.size / 2;
+  const collisionLeft = this.x - this.size / 2 < star.x + star.size / 2;
+  const collisionTop = this.y - this.size / 2 < star.y + star.size / 2;
+  const collisionBottom = this.y + this.size / 2 > star.y - star.size / 2;
+  return collisionRight && collisionLeft && collisionTop && collisionBottom;
 }
 
 // will move the rocket to the moon

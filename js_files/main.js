@@ -52,6 +52,9 @@ function main(){
     const game = new Game(canvas);
     game.startLoop();
 
+    
+    game.callGameOverScreen(buildGameOverScreen);
+
     document.addEventListener('keydown', function(event){
       if(event.keyCode === 38) {
         game.rocket.setYdirection(-1);
@@ -79,7 +82,6 @@ function main(){
         game.rocket.setXdirection(0);
       }
     });
-
   }
 
   // add canvas, div in the center, h1 title (game over), and a button
