@@ -7,8 +7,8 @@ function Rocket(canvas) {
   this.y = 100;
   this.size = 30;
   this.speed = 2;
-  this.direction = 0;
-  // this.yDirection = 0;
+  this.xDirection = 0;
+  this.yDirection = 0;
   
   this.starCounter = 0;
 }
@@ -21,12 +21,17 @@ Rocket.prototype.draw = function() {
 
 // updates the rocket's x and y positions
 Rocket.prototype.update = function() {
-  this.y = this.y + this.direction * this.speed;
+  this.y = this.y + this.yDirection * this.speed;
+  this.x = this.x + this.xDirection * this.speed;
 }
 
 // we will pass a direction (up, down, left, right) and it will be saved as the rocket's new direction
-Rocket.prototype.setDirection = function(newDirection) {
-  this.direction = newDirection;
+Rocket.prototype.setYdirection = function(newDirection) {
+  this.yDirection = newDirection;
+}
+
+Rocket.prototype.setXdirection = function(newDirection) {
+  this.xDirection = newDirection;
 }
 
 // will add a star to this.starCounter

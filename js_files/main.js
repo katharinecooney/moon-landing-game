@@ -1,10 +1,5 @@
 'use strict';
 
-// let rocketIcon = new Image();
-// rocketIcon.src = "../images/start-up.png";
-
-
-
 function main(){
 
   const mainElement = document.querySelector('main');
@@ -59,17 +54,32 @@ function main(){
 
     document.addEventListener('keydown', function(event){
       if(event.keyCode === 38) {
-        game.rocket.setDirection(-1);
+        game.rocket.setYdirection(-1);
       } else if (event.keyCode === 40) {
-        game.rocket.setDirection(1);
+        game.rocket.setYdirection(1);
       }
     });
 
     document.addEventListener('keyup', function(event){
       if(event.keyCode === 38 || event.keyCode === 40) {
-        game.rocket.setDirection(0);
+        game.rocket.setYdirection(0);
       }
     });
+
+    document.addEventListener('keydown', function(event){
+      if(event.keyCode === 37) {
+        game.rocket.setXdirection(-1);
+      } else if (event.keyCode === 39) {
+        game.rocket.setXdirection(1);
+      }
+    });
+
+    document.addEventListener('keyup', function(event){
+      if(event.keyCode === 37 || event.keyCode === 39) {
+        game.rocket.setXdirection(0);
+      }
+    });
+
   }
 
   // add canvas, div in the center, h1 title (game over), and a button
