@@ -5,9 +5,10 @@ function Game(canvas) {
   this.stars = [];
   this.canvas = canvas;
   this.ctx = this.canvas.getContext('2d');
-  this.countDown = 60;
+  // this.countDown = 60;
   this.gameOver = false;
 }
+
 
 // starts the game
 Game.prototype.startLoop = function() {
@@ -16,7 +17,7 @@ Game.prototype.startLoop = function() {
 
   let loop = () => {
     if(Math.random() > .90) {
-      let randomY = Math.random() * this.canvas.height - 12.5;
+      let randomY = (Math.random() * this.canvas.height - 12.5) + 12.5;
       this.stars.push(new Star(this.canvas, randomY));
     }
 
@@ -26,26 +27,27 @@ Game.prototype.startLoop = function() {
     this.updateCanvas();
     this.drawCanvas();
     this.checkIfStarsCaught();
-    window.requestAnimationFrame(loop)
+   
+    window.requestAnimationFrame(loop);
   }
-  window.requestAnimationFrame(loop) 
+  window.requestAnimationFrame(loop); 
 }
 
 // places the rocket and each star on the canvas
 Game.prototype.drawCanvas = function() {
-  console.log('draw');
+  this.rocket.draw();
 }
 
 
 // removes everything from the canvas
 Game.prototype.clearCanvas = function() {
-  console.log('clear');
+  this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 }
 
 
 // will call the update function for both the rocket and the stars
 Game.prototype.updateCanvas = function() {
-  console.log('update');
+  this.rocket.update();
 }
 
 

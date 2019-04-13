@@ -1,9 +1,14 @@
 'use strict';
 
-const mainElement = document.querySelector('main');
+// let rocketIcon = new Image();
+// rocketIcon.src = "../images/start-up.png";
+
+
 
 function main(){
 
+  const mainElement = document.querySelector('main');
+  
   // this will create the html elements needed for each screen
   function buildDom(html) {
     mainElement.innerHTML = html;
@@ -12,7 +17,6 @@ function main(){
 
 
   function buildSplashScreen() {
-    
     let splashScreen = buildDom(
       `<div id='splash-container'>
       <div id='splash-content'>
@@ -29,7 +33,6 @@ function main(){
     startButton.addEventListener('click', function(){
       buildGameScreen();
     });
-
   }
 
   
@@ -41,13 +44,32 @@ function main(){
     </section>
     `);
     
-    let canvas = document.querySelector('canvas');
+    const gameContainerElement = document.querySelector('#game-container');
+
+    const width = gameContainerElement.offsetWidth;
+    const height = gameContainerElement.offsetHeight;
+
+    const canvas = document.querySelector('canvas');
+
+    canvas.setAttribute('width', width);
+    canvas.setAttribute('height', height);
 
     const game = new Game(canvas);
     game.startLoop();
-    
-    // setTimeout(buildGameOverScreen, 3000)
-    
+
+    document.addEventListener('keydown', function(event){
+      if(event.keyCode === 38) {
+        game.rocket.setDirection(-1);
+      } else if (event.keyCode === 40) {
+        game.rocket.setDirection(1);
+      }
+    });
+
+    document.addEventListener('keyup', function(event){
+      if(event.keyCode === 38 || event.keyCode === 40) {
+        game.rocket.setDirection(0);
+      }
+    });
   }
 
   // add canvas, div in the center, h1 title (game over), and a button
@@ -62,13 +84,12 @@ function main(){
       `
     )
     let replayButton = document.querySelector('#replay-button');
-    replayButton.addEventListener('click', buildSplashScreen);
+    replayButton.addEventListener('click', buildGameScreen);
   }
-buildSplashScreen();
+    
+  buildSplashScreen();
 }
-
-
 
 // when the window loads, we will run everything in the main function
 
-window.addEventListener('load', main)
+window.addEventListener('load', main);
