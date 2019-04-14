@@ -1,5 +1,7 @@
 'use strict';
 
+// let counter = 0;
+
 function Game(canvas) {
   this.rocket = null;
   this.stars = [];
@@ -33,6 +35,28 @@ Game.prototype.startLoop = function() {
     // updates the starCounter on the screen
     const starCounter = document.getElementById('star-counter');
     starCounter.innerHTML = this.rocket.starCounter;
+
+
+    // const timerDisplay = document.getElementById('timer');
+    // // timerDisplay. innerHTML = 'clock';
+    
+    // function timeIt() {
+    //   counter++;
+    //   timerDisplay. innerHTML = counter;
+    // }
+    // setInterval(timeIt, 1000);
+    
+    // var time = 30;
+    // function timer (){
+    //   console.log(time);
+    //   return time--;
+    // }
+
+    
+
+
+
+
    
     window.requestAnimationFrame(loop);
   }
@@ -93,7 +117,5 @@ Game.prototype.callGameOverScreen = function(callback) {
    this.onGameOver = callback;
 }
 
-Game.prototype.checkDistance = function() {
 
-}
 

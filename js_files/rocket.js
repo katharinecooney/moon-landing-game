@@ -57,5 +57,3 @@ Rocket.prototype.checkForStars = function(star) {
 Rocket.prototype.victory = function() {
 
 }
-
-

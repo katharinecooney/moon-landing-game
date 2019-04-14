@@ -1,4 +1,5 @@
 'use strict';
+let counter = 5;
 
 function main(){
 
@@ -56,8 +57,19 @@ function main(){
     const game = new Game(canvas);
    
 
+    const timerDisplay = document.getElementById('timer');
+    function timeIt() {
+      if (counter > 0) {
+        counter--;
+        timerDisplay. innerHTML = counter;
+      }
+    }
+    setInterval(timeIt, 1000);
+
     game.startLoop();
     game.callGameOverScreen(buildGameOverScreen);
+
+
 
 
     document.addEventListener('keydown', function(event){
@@ -111,6 +123,9 @@ function main(){
   
   buildSplashScreen();
 }
+
+
+
 
 
 // when the window loads, we will run everything in the main function
