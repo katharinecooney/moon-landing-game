@@ -1,5 +1,5 @@
 'use strict';
-let counter = 5;
+// let counter = 10;
 
 function main(){
 
@@ -57,20 +57,18 @@ function main(){
     const game = new Game(canvas);
    
 
+    
     const timerDisplay = document.getElementById('timer');
     function timeIt() {
-      if (counter > 0) {
-        counter--;
-        timerDisplay. innerHTML = counter;
+      if (game.timeRemaining > 0) {
+        game.timeRemaining--;
+        timerDisplay. innerHTML = game.timeRemaining;
       }
     }
     setInterval(timeIt, 1000);
 
     game.startLoop();
     game.callGameOverScreen(buildGameOverScreen);
-
-
-
 
     document.addEventListener('keydown', function(event){
       if(event.keyCode === 38) {

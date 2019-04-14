@@ -7,7 +7,7 @@ function Game(canvas) {
   this.stars = [];
   this.canvas = canvas;
   this.ctx = this.canvas.getContext('2d');
-  // this.countDown = 60;
+  this.timeRemaining = 10;
   this.gameOver = false;
 }
 
@@ -25,8 +25,6 @@ Game.prototype.startLoop = function() {
       this.stars.push(new Star(this.canvas, randomY));
     }
   
-    console.log('hola! i am stuck in a loop!');
-
     this.clearCanvas();
     this.updateCanvas();
     this.drawCanvas();
@@ -35,32 +33,12 @@ Game.prototype.startLoop = function() {
     // updates the starCounter on the screen
     const starCounter = document.getElementById('star-counter');
     starCounter.innerHTML = this.rocket.starCounter;
-
-
-    // const timerDisplay = document.getElementById('timer');
-    // // timerDisplay. innerHTML = 'clock';
-    
-    // function timeIt() {
-    //   counter++;
-    //   timerDisplay. innerHTML = counter;
-    // }
-    // setInterval(timeIt, 1000);
-    
-    // var time = 30;
-    // function timer (){
-    //   console.log(time);
-    //   return time--;
-    // }
-
-    
-
-
-
-
    
+    // continues the loop
     window.requestAnimationFrame(loop);
   }
 
+  // starts the loop
   window.requestAnimationFrame(loop); 
 }
 
@@ -90,7 +68,6 @@ Game.prototype.updateCanvas = function() {
 
 // will check if rocket caught any stars
 Game.prototype.checkIfStarsCaught = function() {
-  console.log('looking for stars');
   this.stars.forEach((star, index) => {
     const isColliding = this.rocket.checkForStars(star);
     if(isColliding){
@@ -98,10 +75,13 @@ Game.prototype.checkIfStarsCaught = function() {
       this.rocket.countStarsCaught();
       console.log('you caught a star!');
       
-      if(this.rocket.starCounter === 3) {
+
+      //***************THIS IS NOT WORKING ******************//
+      if(this.rocket.starCounter === 3 || this.timeRemaining === 0) {
         this.gameOver = true;
+        this.onGameOver();
         // this.starCounter.style.color = 'red';
-        setTimeout(this.onGameOver, 500);
+        // setTimeout(this.onGameOver, 500);
       }
     }
   });
