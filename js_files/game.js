@@ -1,6 +1,5 @@
 'use strict';
 
-
 function Game(canvas) {
   this.rocket = null;
   this.stars = [];
@@ -85,7 +84,6 @@ Game.prototype.checkIfStarsCaught = function() {
       this.stars.splice(index, 1);
       this.rocket.countStarsCaught();
       console.log('you caught a star!');
-
     }
   });
 }
@@ -94,8 +92,8 @@ Game.prototype.checkIfGameOver = function() {
   if(this.timeRemaining === 0){
     // this.rocket.starCounter = 0;
     this.gameOver = true; 
-    // music.pause();
-    // music.currentTime = 0;
+    music.pause();
+    music.currentTime = 0;
     setTimeout(this.onGameOver, 500);
   }
 }
@@ -104,20 +102,17 @@ Game.prototype.checkIfWin = function() {
   if(this.rocket.starCounter === 5) {
     // this.rocket.starCounter = 0;
     this.gameOver = true; 
-    // music.pause();
-    // music.currentTime = 0;
+    music.pause();
+    music.currentTime = 0;
     setTimeout(this.onWin, 500);
   }
 }
-
-
-
 
 // to access the buildGameOver function from main.js, we need to create a function in this file that can receive buildGameOver as a callback and save it by another name, which we can use in this file
 
 // i think we can't access that function directly because game.js loads before main.js --> main js can access functions directly from game.js because game.js loads first! 
 
-Game.prototype.callGameOverScreen = function(callback) {  
+Game.prototype.callGameOverScreen = function(callback) { 
    this.onGameOver = callback;
 }
 

@@ -1,6 +1,6 @@
 'use strict';
-// let music = new Audio();
-// music.src = '../audio_hero_Laughs-And-Giggles_SIPML_K-04-01-01.mp3';
+let music = new Audio();
+music.src = '../Mii Channel Theme - Nintendo Wii Music-[AudioTrimmer.com].mp3';
 
 function main(){
 
@@ -59,7 +59,7 @@ function main(){
     // we select the <section> that will contain our timer
     const timerDisplay = document.getElementById('timer');
 
-    // music.play();
+    music.play();
     
     // we create a function that will subtract from our game.timeRemaining 
     function timeIt() {
@@ -140,7 +140,3 @@ function main(){
 
 // when the window loads, we will run everything in the main function, beginning with buildSplashScreen
 window.addEventListener('load', main);
-
-
-//************** GLITCH ******************/
-// sometimes when replaying the game, it will throw an error for line 41; i think this has to do with resetting the starCounter back to zero, but i tried to reset it in both the buildGameOverScreen method in main.js, as well as the checkIfGameOver method in game.js
