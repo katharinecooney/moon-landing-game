@@ -1,5 +1,6 @@
 'use strict';
 
+
 function Game(canvas) {
   this.rocket = null;
   this.stars = [];
@@ -10,14 +11,13 @@ function Game(canvas) {
   this.gameOver = false;
 }
 
-
 // starts the game
 Game.prototype.startLoop = function() {
   this.rocket = new Rocket(this.canvas);
   this.moon = new Moon(this.canvas);
   this.stars = [];
   
-  // 'animates' the game
+  // 'animates' the game when passed to window.requestAnimationFrame()
   let loop = () => {
 
     // adds a new star randomly to the canvas
@@ -28,19 +28,24 @@ Game.prototype.startLoop = function() {
       }
     }
     
+    // on every frame, the canvas will be cleared, the new positions will be checked, and then the items will be drawn in their new positions
+
+    // we will also be checking for collisions, and to see if the time has run out or the user caught enough stars
     this.clearCanvas();
     this.updateCanvas();
     this.drawCanvas();
     this.checkIfStarsCaught();
+    this.checkIfWin();
     this.checkIfGameOver();
     
     // updates the starCounter on the screen
     const starCounter = document.getElementById('star-counter');
- 
     starCounter.innerHTML = this.rocket.starCounter;
+
     // continues the loop
     window.requestAnimationFrame(loop);
   }
+
   // starts the loop
   window.requestAnimationFrame(loop); 
 }
@@ -55,12 +60,10 @@ Game.prototype.drawCanvas = function() {
   });
 }
 
-
 // removes everything from the canvas
 Game.prototype.clearCanvas = function() {
   this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 }
-
 
 // will call the update function for both the rocket and the stars
 Game.prototype.updateCanvas = function() {
@@ -70,7 +73,6 @@ Game.prototype.updateCanvas = function() {
     star.update();
   });
 }
-
 
 // will check if rocket caught any stars
 Game.prototype.checkIfStarsCaught = function() {
@@ -88,14 +90,27 @@ Game.prototype.checkIfStarsCaught = function() {
   });
 }
 
-
 Game.prototype.checkIfGameOver = function() {
-  if((this.rocket.starCounter === 3) || (this.timeRemaining === 0)){
-    this.rocket.starCounter = 0;
+  if(this.timeRemaining === 0){
+    // this.rocket.starCounter = 0;
     this.gameOver = true; 
-    setTimeout(this.onGameOver(), 3000);
+    // music.pause();
+    // music.currentTime = 0;
+    setTimeout(this.onGameOver, 500);
   }
 }
+
+Game.prototype.checkIfWin = function() {
+  if(this.rocket.starCounter === 5) {
+    // this.rocket.starCounter = 0;
+    this.gameOver = true; 
+    // music.pause();
+    // music.currentTime = 0;
+    setTimeout(this.onWin, 500);
+  }
+}
+
+
 
 
 // to access the buildGameOver function from main.js, we need to create a function in this file that can receive buildGameOver as a callback and save it by another name, which we can use in this file
@@ -104,6 +119,10 @@ Game.prototype.checkIfGameOver = function() {
 
 Game.prototype.callGameOverScreen = function(callback) {  
    this.onGameOver = callback;
+}
+
+Game.prototype.callWinScreen = function(callback) {  
+  this.onWin = callback;
 }
 
 

@@ -3,20 +3,26 @@
   min-width: 680px;
   width: 95vw;
   margin: auto;
-  height: 95vh; 
+  height: 90vh; 
   min-height: 450px;
 }
 
 #splash-container,
-#game-over-container {
+#game-over-container,
+#win-container {
   display: flex;
   justify-content: center;
   height: 100%;
-  background: rgba(226, 223, 223, 0.767);
+  background: #8e9eab; 
+  background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab); 
+  background: linear-gradient(to right, #eef2f3, #8e9eab); 
+  /* color: rgb(35, 6, 59); */
+  color: rgba(39, 4, 54, 0.932);
 }
 
 #splash-content,
-#game-over-content {
+#game-over-content,
+#win-content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -50,7 +56,7 @@ button {
   padding: 10px 20px;
   font-size: 1.5em;
   border-radius: 10px;
-  background-color: rgba(10, 8, 102, 0.822);
+  background-color: rgba(39, 4, 54, 0.932);
   color: white;
 }
 
@@ -69,14 +75,12 @@ button {
   color: white;
 }
 
-
-
 #star-counter {
   text-align: left;
-  padding: 10px 0 10px 10px;
+  padding: 10px 0 10px 20px;
 }
 
 #timer {
   text-align: right;
-  padding: 10px 10px 10px 0;
+  padding: 10px 20px 10px 0;
 }
