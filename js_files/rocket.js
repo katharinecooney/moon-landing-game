@@ -40,9 +40,9 @@ Rocket.prototype.countStarsCaught = function() {
   this.starCounter++;
 }
 
-Rocket.prototype.shareStarCounter = function() {
-  return this.starCounter;
-}
+// Rocket.prototype.shareStarCounter = function() {
+//   return this.starCounter;
+// }
 
 // check 'collisions' with star
 Rocket.prototype.checkForStars = function(star) {
@@ -55,5 +55,8 @@ Rocket.prototype.checkForStars = function(star) {
 
 // will move the rocket to the moon
 Rocket.prototype.victory = function() {
-
+  this.y = this.canvas.height / 2;
+  this.x = this.canvas.width / 2;
+  
+  
 }

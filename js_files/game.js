@@ -1,14 +1,12 @@
 'use strict';
 
-// let counter = 0;
-
 function Game(canvas) {
   this.rocket = null;
   this.stars = [];
   this.moon = null;
   this.canvas = canvas;
   this.ctx = this.canvas.getContext('2d');
-  this.timeRemaining = 5;
+  this.timeRemaining = 10;
   this.gameOver = false;
 }
 
@@ -21,29 +19,34 @@ Game.prototype.startLoop = function() {
   
   // 'animates' the game
   let loop = () => {
-    
+
     // adds a new star randomly to the canvas
-    if(Math.random() > .96) {
-      let randomY = (Math.random() * this.canvas.height);
-      this.stars.push(new Star(this.canvas, randomY));
+    if(this.gameOver === false){
+      if(Math.random() > .96) {
+        let randomY = (Math.random() * this.canvas.height);
+        this.stars.push(new Star(this.canvas, randomY));
+      }
     }
-  
+    
     this.clearCanvas();
     this.updateCanvas();
     this.drawCanvas();
     this.checkIfStarsCaught();
+    this.checkIfGameOver();
     
     // updates the starCounter on the screen
     const starCounter = document.getElementById('star-counter');
-    starCounter.innerHTML = this.rocket.starCounter;
-   
+
+    if(this.gameOver === false){
+      starCounter.innerHTML = this.rocket.starCounter;
+    }
     // continues the loop
     window.requestAnimationFrame(loop);
   }
-
   // starts the loop
   window.requestAnimationFrame(loop); 
 }
+
 
 // places the rocket and each star on the canvas
 Game.prototype.drawCanvas = function() {
@@ -64,7 +67,7 @@ Game.prototype.clearCanvas = function() {
 // will call the update function for both the rocket and the stars
 Game.prototype.updateCanvas = function() {
   this.rocket.update();
-  // this.moon.draw();
+  // this.moon.update();
   this.stars.forEach(function(star){
     star.update();
   });
@@ -79,23 +82,22 @@ Game.prototype.checkIfStarsCaught = function() {
       this.stars.splice(index, 1);
       this.rocket.countStarsCaught();
       console.log('you caught a star!');
-      
-
-      //***********TIMErEMAINING IS NOT WORKING **************//
-      if((this.rocket.starCounter === 3) || (this.timeRemaining === 0)) {
-        this.onGameOver();
-        this.gameOver = true;
-        // setTimeout(this.onGameOver, 500);
-      }
     }
   });
+}
+
+
+Game.prototype.checkIfGameOver = function() {
+  if((this.rocket.starCounter === 3) || (this.timeRemaining === 0)){
+    this.gameOver = true; 
+    this.onGameOver();
+  }
 }
 
 
 // to access the buildGameOver function from main.js, we need to create a function in this file that can receive buildGameOver as a callback and save it by another name, which we can use in this file
 
 // i think we can't access that function directly because game.js loads before main.js --> main js can access functions directly from game.js because game.js loads first! 
-
 
 Game.prototype.callGameOverScreen = function(callback) {  
    this.onGameOver = callback;

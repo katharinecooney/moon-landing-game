@@ -6,8 +6,6 @@ function Star(canvas, y) {
   this.y = y;
   this.speed = 3;
   this.direction = -2;
- 
-  
 }
 
 // places the star on the canvas

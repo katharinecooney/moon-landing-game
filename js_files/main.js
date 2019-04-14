@@ -57,18 +57,19 @@ function main(){
     const game = new Game(canvas);
    
 
-    
     const timerDisplay = document.getElementById('timer');
+    
     function timeIt() {
-      
         game.timeRemaining--;
         timerDisplay. innerHTML = game.timeRemaining;
         return game.timeRemaining;
     }
+
     setInterval(timeIt, 1000);
 
     game.startLoop();
     game.callGameOverScreen(buildGameOverScreen);
+
 
     document.addEventListener('keydown', function(event){
       if(event.keyCode === 38) {
@@ -118,12 +119,8 @@ function main(){
     replayButton.addEventListener('click', buildGameScreen);
   }
     
-  
   buildSplashScreen();
 }
-
-
-
 
 
 // when the window loads, we will run everything in the main function
