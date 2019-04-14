@@ -51,7 +51,7 @@ function main(){
     const canvas = document.querySelector('canvas');
     canvas.setAttribute('width', width);
     canvas.setAttribute('height', height);
-    canvas.style.background = "linear-gradient( rgba(2, 1, 8, 0.5),   rgba(3, 1, 15, 0.5) ),   url('../images/4k-wallpaper-astro-astrology-1146134.jpg') center / cover no-repeat  ";
+    canvas.style.background = "linear-gradient( rgba(2, 1, 8, 0.5), rgba(3, 1, 15, 0.5) ),   url('../images/4k-wallpaper-astro-astrology-1146134.jpg') center / cover no-repeat  ";
 
 
     const game = new Game(canvas);
@@ -60,10 +60,10 @@ function main(){
     
     const timerDisplay = document.getElementById('timer');
     function timeIt() {
-      if (game.timeRemaining > 0) {
+      
         game.timeRemaining--;
         timerDisplay. innerHTML = game.timeRemaining;
-      }
+        return game.timeRemaining;
     }
     setInterval(timeIt, 1000);
 

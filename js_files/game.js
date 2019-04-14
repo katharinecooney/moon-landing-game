@@ -5,9 +5,10 @@
 function Game(canvas) {
   this.rocket = null;
   this.stars = [];
+  this.moon = null;
   this.canvas = canvas;
   this.ctx = this.canvas.getContext('2d');
-  this.timeRemaining = 10;
+  this.timeRemaining = 5;
   this.gameOver = false;
 }
 
@@ -15,10 +16,12 @@ function Game(canvas) {
 // starts the game
 Game.prototype.startLoop = function() {
   this.rocket = new Rocket(this.canvas);
+  this.moon = new Moon(this.canvas);
   this.stars = [];
-
+  
   // 'animates' the game
   let loop = () => {
+    
     // adds a new star randomly to the canvas
     if(Math.random() > .96) {
       let randomY = (Math.random() * this.canvas.height);
@@ -45,6 +48,7 @@ Game.prototype.startLoop = function() {
 // places the rocket and each star on the canvas
 Game.prototype.drawCanvas = function() {
   this.rocket.draw();
+  this.moon.draw();
   this.stars.forEach(function(star){
     star.draw();
   });
@@ -60,6 +64,7 @@ Game.prototype.clearCanvas = function() {
 // will call the update function for both the rocket and the stars
 Game.prototype.updateCanvas = function() {
   this.rocket.update();
+  // this.moon.draw();
   this.stars.forEach(function(star){
     star.update();
   });
@@ -76,11 +81,10 @@ Game.prototype.checkIfStarsCaught = function() {
       console.log('you caught a star!');
       
 
-      //***************THIS IS NOT WORKING ******************//
-      if(this.rocket.starCounter === 3 || this.timeRemaining === 0) {
-        this.gameOver = true;
+      //***********TIMErEMAINING IS NOT WORKING **************//
+      if((this.rocket.starCounter === 3) || (this.timeRemaining === 0)) {
         this.onGameOver();
-        // this.starCounter.style.color = 'red';
+        this.gameOver = true;
         // setTimeout(this.onGameOver, 500);
       }
     }
