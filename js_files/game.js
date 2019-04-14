@@ -36,10 +36,8 @@ Game.prototype.startLoop = function() {
     
     // updates the starCounter on the screen
     const starCounter = document.getElementById('star-counter');
-
-    if(this.gameOver === false){
-      starCounter.innerHTML = this.rocket.starCounter;
-    }
+ 
+    starCounter.innerHTML = this.rocket.starCounter;
     // continues the loop
     window.requestAnimationFrame(loop);
   }
@@ -76,12 +74,16 @@ Game.prototype.updateCanvas = function() {
 
 // will check if rocket caught any stars
 Game.prototype.checkIfStarsCaught = function() {
+  let bell = new Audio();
+  bell.src = '../sound_spark_Laser-Like_Synth_Basic_Laser2_09.mp3';
   this.stars.forEach((star, index) => {
     const isColliding = this.rocket.checkForStars(star);
     if(isColliding){
+      bell.play();
       this.stars.splice(index, 1);
       this.rocket.countStarsCaught();
       console.log('you caught a star!');
+
     }
   });
 }
@@ -89,8 +91,9 @@ Game.prototype.checkIfStarsCaught = function() {
 
 Game.prototype.checkIfGameOver = function() {
   if((this.rocket.starCounter === 3) || (this.timeRemaining === 0)){
+    this.rocket.starCounter = 0;
     this.gameOver = true; 
-    this.onGameOver();
+    setTimeout(this.onGameOver(), 3000);
   }
 }
 

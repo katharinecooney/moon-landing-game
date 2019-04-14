@@ -1,17 +1,14 @@
 'use strict';
-// let counter = 10;
 
 function main(){
 
   const mainElement = document.querySelector('main');
-  
 
   // this will create the html elements needed for each screen
   function buildDom(html) {
     mainElement.innerHTML = html;
     return mainElement;
   }
-
 
   function buildSplashScreen() {
     let splashScreen = buildDom(
@@ -30,7 +27,6 @@ function main(){
     });
   }
   
-
   function buildGameScreen() {
     let gameScreen = buildDom(`
     <section id='game-container'>
@@ -42,20 +38,16 @@ function main(){
     </section>
     `);
     
-
     const gameContainerElement = document.querySelector('#game-container');
     const width = gameContainerElement.offsetWidth;
     const height = gameContainerElement.offsetHeight;
 
-
     const canvas = document.querySelector('canvas');
     canvas.setAttribute('width', width);
     canvas.setAttribute('height', height);
-    canvas.style.background = "linear-gradient( rgba(2, 1, 8, 0.5), rgba(3, 1, 15, 0.5) ),   url('../images/4k-wallpaper-astro-astrology-1146134.jpg') center / cover no-repeat  ";
-
+    canvas.style.background = "linear-gradient( rgba(6, 1, 11, 0.5), rgba(10, 5, 15, 0.5) ),   url('../images/4k-wallpaper-astro-astrology-1146134.jpg') center / cover no-repeat  ";
 
     const game = new Game(canvas);
-   
 
     const timerDisplay = document.getElementById('timer');
     
@@ -68,8 +60,8 @@ function main(){
     setInterval(timeIt, 1000);
 
     game.startLoop();
-    game.callGameOverScreen(buildGameOverScreen);
 
+    game.callGameOverScreen(buildGameOverScreen);
 
     document.addEventListener('keydown', function(event){
       if(event.keyCode === 38) {
@@ -79,13 +71,11 @@ function main(){
       }
     });
 
-
     document.addEventListener('keyup', function(event){
       if(event.keyCode === 38 || event.keyCode === 40) {
         game.rocket.setYdirection(0);
       }
     });
-
 
     document.addEventListener('keydown', function(event){
       if(event.keyCode === 37) {
@@ -95,7 +85,6 @@ function main(){
       }
     });
 
-
     document.addEventListener('keyup', function(event){
       if(event.keyCode === 37 || event.keyCode === 39) {
         game.rocket.setXdirection(0);
@@ -103,18 +92,16 @@ function main(){
     });
   }
 
-
   // add canvas, div in the center, h1 title (game over), and a button
   function buildGameOverScreen() {
     let gameOverScreen = buildDom(
       `<div id='game-over-container'>
         <div id='game-over-content'>
           <h1>Game Over!</h1>
-          <button id="replay-button">Start</button>
+          <button id="replay-button">Replay</button>
         </div>
       </div>`
     );
-
     let replayButton = document.querySelector('#replay-button');
     replayButton.addEventListener('click', buildGameScreen);
   }
@@ -122,6 +109,9 @@ function main(){
   buildSplashScreen();
 }
 
-
 // when the window loads, we will run everything in the main function
 window.addEventListener('load', main);
+
+
+//************** GLITCH ******************/
+// sometimes when replaying the game, it will throw an error for line 41; i think this has to do with resetting the starCounter back to zero, but i tried to reset it in both the buildGameOverScreen method in main.js, as well as the checkIfGameOver method in game.js

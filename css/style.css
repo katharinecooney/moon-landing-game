@@ -12,7 +12,7 @@
   display: flex;
   justify-content: center;
   height: 100%;
-  background: rgba(202, 200, 200, 0.452);
+  background: rgba(226, 223, 223, 0.767);
 }
 
 #splash-content,
@@ -37,7 +37,8 @@ html {
 h1 {
   text-align: center;
   font-family: 'Bungee Shade', cursive;
-  font-size: 3em;
+  font-size: 4em;
+  margin-bottom: 35px;
 }
 
 p {
@@ -47,7 +48,7 @@ p {
 
 button {
   padding: 10px 20px;
-  font-size: 1em;
+  font-size: 1.5em;
   border-radius: 10px;
   background-color: rgba(10, 8, 102, 0.822);
   color: white;
@@ -58,16 +59,24 @@ button {
   justify-content: space-between;
 }
 
-#star-counter {
-  height: 50px;
-  flex: 1;
-  border: 1px solid black;
-  text-align: left;
-}
-
+#star-counter,
 #timer {
   height: 50px;
   flex: 1;
   border: 1px solid black;
+  font-size: 2em;
+  background-color: rgb(6, 1, 11);
+  color: white;
+}
+
+
+
+#star-counter {
+  text-align: left;
+  padding: 10px 0 10px 10px;
+}
+
+#timer {
   text-align: right;
+  padding: 10px 10px 10px 0;
 }
