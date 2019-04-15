@@ -24,14 +24,6 @@ p {
   margin: 0 0 30px 0;
 }
 
-button {
-  padding: 10px 20px;
-  font-size: 1.5em;
-  border-radius: 10px;
-  background-color: rgba(39, 4, 54, 0.932);
-  color: white;
-}
-
 #game-container {
   height: 100%;
   width: 100%;
@@ -54,7 +46,6 @@ canvas {
   background: #8e9eab; 
   background: -webkit-linear-gradient(to right, #eef2f3, #8e9eab); 
   background: linear-gradient(to right, #eef2f3, #8e9eab); 
-  /* color: rgb(35, 6, 59); */
   color: rgba(39, 4, 54, 0.932);
 }
 
@@ -68,15 +59,30 @@ canvas {
   margin: auto;
 }
 
-#win-content button {
-  background-color: rgb(92, 3, 114);
-  border: none;
-  box-shadow: 3px 3px 5px rgba(171, 162, 173, 0.24);
-}
-
 #win-container {
   background: linear-gradient( rgba(6, 1, 11, 0.7), rgba(10, 5, 15, 0.7) ), url('https://blenderartists.org/uploads/default/original/4X/4/2/f/42f6c9b37b58198f8d05207648e1938619473bc6.jpg') center / cover no-repeat;
   color: rgb(240, 188, 253);
+}
+
+/******************** BUTTONS **********************/
+
+button {
+  padding: 10px 20px;
+  font-size: 1.5em;
+  border-radius: 10px;
+  background-color: rgba(39, 4, 54, 0.932);
+  color: white;
+  border: none;
+}
+
+#splash-content button,
+#game-over-content button {
+  box-shadow: -5px 5px 5px rgb(73, 72, 72);
+}
+
+#win-content button {
+  background-color: rgb(92, 3, 114);
+  box-shadow: 3px 3px 5px rgba(171, 162, 173, 0.24);
 }
 
 /******************** TIMER AND COUNTER **********************/
