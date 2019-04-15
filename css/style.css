@@ -84,3 +84,8 @@ button {
   text-align: right;
   padding: 10px 20px 10px 0;
 }
+
+#win-container {
+  background: linear-gradient( rgba(6, 1, 11, 0.5), rgba(10, 5, 15, 0.5) ), url('https://blenderartists.org/uploads/default/original/4X/4/2/f/42f6c9b37b58198f8d05207648e1938619473bc6.jpg') center / cover no-repeat;
+  color: rgb(240, 188, 253);
+}

@@ -27,12 +27,12 @@ Rocket.prototype.update = function() {
 
 // we will pass a direction (up, down) from main.js and it will be saved as the rocket's new y direction
 Rocket.prototype.setYdirection = function(newDirection) {
-  this.yDirection = newDirection;
+    this.yDirection = newDirection;
 }
 
 // we will pass a direction (left, right) from main.js and it will be saved as the rocket's new x direction
 Rocket.prototype.setXdirection = function(newDirection) {
-  this.xDirection = newDirection;
+    this.xDirection = newDirection;
 }
 
 // will add a star to this.starCounter
