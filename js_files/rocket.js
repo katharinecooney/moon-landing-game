@@ -21,8 +21,20 @@ Rocket.prototype.draw = function() {
 
 // updates the rocket's x and y positions
 Rocket.prototype.update = function() {
-  this.y = this.y + this.yDirection * this.speed;
-  this.x = this.x + this.xDirection * this.speed;
+  let newX = this.x + this.xDirection * this.speed;
+  let newY = this.y + this.yDirection * this.speed;
+
+  if (newX < 0 || newX > this.canvas.width - this.size){
+    return this.x;
+  } else {
+    this.x = this.x + this.xDirection * this.speed;
+  }
+
+  if (newY < 0 || newY > this.canvas.height - this.size) {
+    return this.y;
+  } else {
+    this.y = this.y + this.yDirection * this.speed;
+  }
 }
 
 // we will pass a direction (up, down) from main.js and it will be saved as the rocket's new y direction

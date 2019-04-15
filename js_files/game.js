@@ -26,11 +26,10 @@ Game.prototype.startLoop = function() {
         let randomY = (Math.random() * this.canvas.height);
         this.stars.push(new Star(this.canvas, randomY));
       }
-      if(Math.random() > .97) {
+      if(Math.random() > .98) {
         let randomY = (Math.random() * this.canvas.height);
         this.comets.push(new Comet(this.canvas, randomY));
       }
-
     }
     
     // on every frame, the canvas will be cleared, the new positions will be checked, and then the items will be drawn in their new positions

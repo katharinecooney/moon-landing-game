@@ -39,6 +39,10 @@ function main(){
         <section id="timer"></section>
       </section>
       <canvas></canvas>
+      <section id='rules'>
+        <section id='rules-inner'>
+        </section>
+      </section>
     </section>
     `);
     

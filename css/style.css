@@ -1,19 +1,20 @@
+
 html {
   font-size: 24px;
   font-family: 'Roboto', sans-serif;
 }
 
 .container {
-  min-width: 680px;
+  /* min-width: 680px; */
   width: 95vw;
   margin: auto;
-  height: 90vh; 
-  min-height: 450px;
+  height: 93vh; 
+  /* min-height: 450px; */
 }
 
 h1 {
   text-align: center;
-  font-family: 'Bungee Shade', cursive;
+  font-family: 'Bungee Shade', sans-serif;
   font-size: 4em;
   margin-bottom: 35px;
 }
@@ -29,6 +30,16 @@ button {
   border-radius: 10px;
   background-color: rgba(39, 4, 54, 0.932);
   color: white;
+}
+
+#game-container {
+  height: 100%;
+  width: 100%;
+}
+
+canvas {
+  width: 95vw;
+  height: 90vh;
 }
 
 /******************** SCREEN STYLES **********************/
@@ -57,9 +68,10 @@ button {
   margin: auto;
 }
 
-#game-container {
-  height: 100%;
-  width: 100%;
+#win-content button {
+  background-color: rgb(92, 3, 114);
+  border: none;
+  box-shadow: 3px 3px 5px rgba(171, 162, 173, 0.24);
 }
 
 #win-container {
@@ -94,3 +106,26 @@ button {
   padding: 10px 20px 10px 0;
 }
 
+/******************** RULES **********************/
+
+/* #rules {
+  height: 40px;
+  background-color: yellow;
+  margin-top: - 10px;
+} */
+
+/******************** RESPONSIVE **********************/
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5em;
+  }
+
+  p {
+    font-size: 0.75em;
+  }
+
+  button {
+    font-size: 1em;
+  }
+}
