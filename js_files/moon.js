@@ -2,9 +2,6 @@ function Moon(canvas) {
   this.canvas = canvas; 
   this.ctx = this.canvas.getContext('2d');
   this.size = 300;
-  this.red = 100;
-  this.green = 100;
-  this.blue = 100;
 }
 
 Moon.prototype.draw = function() {

@@ -77,7 +77,7 @@ function main(){
     // we select the <section> that will contain our timer
     const timerDisplay = document.getElementById('timer');
 
-    // music.play();
+    music.play();
     
     // we create a function that will subtract from our game.timeRemaining 
     function timeIt() {
@@ -140,6 +140,9 @@ function main(){
   }
 
   function buildWinScreen() {
+    let clapping = new Audio();
+    clapping.src = '../Applause Crowd Cheering sound effect.mp3';
+    clapping.play();
     let winScreen = buildDom(
       `<div id='win-container'>
         <div id='win-content'>
