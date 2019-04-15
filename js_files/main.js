@@ -47,9 +47,19 @@ function main(){
     `);
     
     // we select and style the <section> that contains our game canvas
-    const gameContainerElement = document.querySelector('#game-container');
-    const width = gameContainerElement.offsetWidth;
-    const height = gameContainerElement.offsetHeight;
+    let gameContainerElement = document.querySelector('#game-container');
+    let width = gameContainerElement.offsetWidth;
+    let height = gameContainerElement.offsetHeight;
+
+    // we add an event listener to our window so that when it resizes, the width and height will be reset to the gameContainerElement's new width and height, and then we will assign that width and height to our canvas
+    window.addEventListener('resize', () => {
+      width = gameContainerElement.offsetWidth;
+      height = gameContainerElement.offsetHeight;
+      canvas.setAttribute('width', width);
+      canvas.setAttribute('height', height);
+    })
+
+
 
     // we select and style the canvas
     const canvas = document.querySelector('canvas');
