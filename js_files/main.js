@@ -16,12 +16,18 @@ function main(){
   function buildSplashScreen() {
     let splashScreen = buildDom(
       `<div id='splash-container'>
-      <div id='splash-content'>
-        <h1>Moon Landing</h1>
-        <p>Move the rocket and catch the stars</p>
-        <button id="start-button">Start</button>
+        <div id='splash-content'>
+          <h1>Moon Landing</h1>
+          <p>Move the rocket and catch the stars</p>
+          <button id="start-button">Start</button>
         </div>
-      </div>`
+       </div>
+       <section id='rules'>
+        
+        <span>Use the </span><img src="../images/keyboard.png"><span>arrows to move the rocket</span> 
+        
+      </section>
+       `
     );
 
     let startButton = document.querySelector('#start-button');
@@ -39,10 +45,11 @@ function main(){
         <section id="timer"></section>
       </section>
       <canvas></canvas>
-      <section id='rules'>
-        <section id='rules-inner'>
-        </section>
-      </section>
+      // <section id='rules'>
+        
+      //   <span>Use the </span><img src="../images/keyboard.png"><span>arrows to move the rocket</span> 
+        
+      // </section>
     </section>
     `);
     
