@@ -89,7 +89,7 @@ Game.prototype.updateCanvas = function() {
 // will check if rocket caught any stars
 Game.prototype.checkIfStarsCaught = function() {
   let bell = new Audio();
-  bell.src = '../sound_spark_Laser-Like_Synth_Basic_Laser2_09.mp3';
+  bell.src = '../zapsplat_multimedia_notification_chime_bell_007_26407.mp3';
   this.stars.forEach((star, index) => {
     const isColliding = this.rocket.checkForStars(star);
     if(isColliding){
@@ -102,10 +102,12 @@ Game.prototype.checkIfStarsCaught = function() {
 }
 
 Game.prototype.checkIfCometCollision = function() {
+  let laser = new Audio();
+  laser.src = '../sound_spark_Laser-Like_Synth_Basic_Laser2_09.mp3';
   this.comets.forEach((comet, index) => {
     const isColliding = this.rocket.checkForComets(comet);
     if(isColliding){
-      // bell.play();
+      laser.play();
       this.comets.splice(index, 1);
       this.rocket.countCometsStruck();
       console.log('you hit a comet!');
