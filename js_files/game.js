@@ -40,6 +40,7 @@ Game.prototype.startLoop = function() {
     this.updateCanvas();
     this.drawCanvas();
     this.checkIfStarsCaught();
+    this.checkIfCometCollision();
     this.checkIfWin();
     this.checkIfGameOver();
     
@@ -96,6 +97,18 @@ Game.prototype.checkIfStarsCaught = function() {
       this.stars.splice(index, 1);
       this.rocket.countStarsCaught();
       console.log('you caught a star!');
+    }
+  });
+}
+
+Game.prototype.checkIfCometCollision = function() {
+  this.comets.forEach((comet, index) => {
+    const isColliding = this.rocket.checkForComets(comet);
+    if(isColliding){
+      // bell.play();
+      this.comets.splice(index, 1);
+      this.rocket.countCometsStruck();
+      console.log('you hit a comet!');
     }
   });
 }

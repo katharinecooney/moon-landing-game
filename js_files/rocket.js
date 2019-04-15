@@ -40,6 +40,10 @@ Rocket.prototype.countStarsCaught = function() {
   this.starCounter++;
 }
 
+Rocket.prototype.countCometsStruck = function() {
+  this.starCounter--;
+}
+
 // Rocket.prototype.shareStarCounter = function() {
 //   return this.starCounter;
 // }
@@ -50,6 +54,14 @@ Rocket.prototype.checkForStars = function(star) {
   const collisionLeft = this.x - this.size / 2 < star.x + star.size / 2;
   const collisionTop = this.y - this.size / 2 < star.y + star.size / 2;
   const collisionBottom = this.y + this.size / 2 > star.y - star.size / 2;
+  return collisionRight && collisionLeft && collisionTop && collisionBottom;
+}
+
+Rocket.prototype.checkForComets = function(comet) {
+  const collisionRight = this.x + this.size / 2 > comet.x - comet.size / 2;
+  const collisionLeft = this.x - this.size / 2 < comet.x + comet.size / 2;
+  const collisionTop = this.y - this.size / 2 < comet.y + comet.size / 2;
+  const collisionBottom = this.y + this.size / 2 > comet.y - comet.size / 2;
   return collisionRight && collisionLeft && collisionTop && collisionBottom;
 }
 
