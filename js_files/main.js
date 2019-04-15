@@ -127,6 +127,9 @@ function main(){
   }
 
   function buildGameOverScreen() {
+    let failSound = new Audio();
+    failSound.src = '../zapsplat_cartoon_fail_negative_descending_musical_tuba_marimba_oboe_18126.mp3';
+    failSound.play();
     let gameOverScreen = buildDom(
       `<div id='game-over-container'>
         <div id='game-over-content'>
