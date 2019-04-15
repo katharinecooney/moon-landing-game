@@ -22,13 +22,10 @@ function main(){
           <button id="start-button">Start</button>
         </div>
        </div>
-       <section id='rules'>
-        
-        <span>Use the </span><img src="../images/keyboard.png"><span>arrows to move the rocket</span> 
-        
-      </section>
        `
     );
+
+    // <p>Use the <img src="../images/keyboard.png"> arrows to move the rocket</p>
 
     let startButton = document.querySelector('#start-button');
     startButton.addEventListener('click', function(){
@@ -45,12 +42,12 @@ function main(){
         <section id="timer"></section>
       </section>
       <canvas></canvas>
-      // <section id='rules'>
-        
-      //   <span>Use the </span><img src="../images/keyboard.png"><span>arrows to move the rocket</span> 
-        
-      // </section>
-    </section>
+      <section id='rules'>
+        <div class='rules-div'>
+         <img id='rules-image' src="../images/keyboard.png">
+         <p id='rules-text'>Use the arrows to catch the stars. Avoid the comets! </p>
+        </div>
+      </section>
     `);
     
     // we select and style the <section> that contains our game canvas
