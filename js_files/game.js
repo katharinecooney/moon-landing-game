@@ -14,6 +14,7 @@ function Game(canvas) {
 Game.prototype.startLoop = function() {
   this.rocket = new Rocket(this.canvas);
   this.moon = new Moon(this.canvas);
+  this.comets = [];
   this.stars = [];
   
   // 'animates' the game when passed to window.requestAnimationFrame()
@@ -25,6 +26,11 @@ Game.prototype.startLoop = function() {
         let randomY = (Math.random() * this.canvas.height);
         this.stars.push(new Star(this.canvas, randomY));
       }
+      if(Math.random() > .97) {
+        let randomY = (Math.random() * this.canvas.height);
+        this.comets.push(new Comet(this.canvas, randomY));
+      }
+
     }
     
     // on every frame, the canvas will be cleared, the new positions will be checked, and then the items will be drawn in their new positions
@@ -54,6 +60,9 @@ Game.prototype.startLoop = function() {
 Game.prototype.drawCanvas = function() {
   this.rocket.draw();
   this.moon.draw();
+  this.comets.forEach(function(comet){
+    comet.draw();
+  });
   this.stars.forEach(function(star){
     star.draw();
   });
@@ -68,6 +77,9 @@ Game.prototype.clearCanvas = function() {
 Game.prototype.updateCanvas = function() {
   this.rocket.update();
   // this.moon.update();
+  this.comets.forEach(function(comet){
+    comet.update();
+  });
   this.stars.forEach(function(star){
     star.update();
   });

@@ -1,15 +1,42 @@
+html {
+  font-size: 24px;
+  font-family: 'Roboto', sans-serif;
+}
+
 .container {
-  border: 1px solid black;
   min-width: 680px;
   width: 95vw;
   margin: auto;
-  height: 90vh; 
+  height: 80vh; 
   min-height: 450px;
 }
+
+h1 {
+  text-align: center;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 4em;
+  margin-bottom: 35px;
+}
+
+p {
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1.5em;
+  border-radius: 10px;
+  background-color: rgba(39, 4, 54, 0.932);
+  color: white;
+}
+
+/******************** SCREEN STYLES **********************/
 
 #splash-container,
 #game-over-container,
 #win-container {
+  border: 1px solid black;
   display: flex;
   justify-content: center;
   height: 100%;
@@ -35,30 +62,12 @@
   width: 100%;
 }
 
-html {
-  font-size: 24px;
-  font-family: 'Roboto', sans-serif;
+#win-container {
+  background: linear-gradient( rgba(6, 1, 11, 0.5), rgba(10, 5, 15, 0.5) ), url('https://blenderartists.org/uploads/default/original/4X/4/2/f/42f6c9b37b58198f8d05207648e1938619473bc6.jpg') center / cover no-repeat;
+  color: rgb(240, 188, 253);
 }
 
-h1 {
-  text-align: center;
-  font-family: 'Bungee Shade', cursive;
-  font-size: 4em;
-  margin-bottom: 35px;
-}
-
-p {
-  text-align: center;
-  margin: 0 0 30px 0;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 1.5em;
-  border-radius: 10px;
-  background-color: rgba(39, 4, 54, 0.932);
-  color: white;
-}
+/******************** TIMER AND COUNTER **********************/
 
 #game-info {
   display: flex;
@@ -85,7 +94,3 @@ button {
   padding: 10px 20px 10px 0;
 }
 
-#win-container {
-  background: linear-gradient( rgba(6, 1, 11, 0.5), rgba(10, 5, 15, 0.5) ), url('https://blenderartists.org/uploads/default/original/4X/4/2/f/42f6c9b37b58198f8d05207648e1938619473bc6.jpg') center / cover no-repeat;
-  color: rgb(240, 188, 253);
-}

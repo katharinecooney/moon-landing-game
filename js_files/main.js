@@ -59,7 +59,7 @@ function main(){
     // we select the <section> that will contain our timer
     const timerDisplay = document.getElementById('timer');
 
-    music.play();
+    // music.play();
     
     // we create a function that will subtract from our game.timeRemaining 
     function timeIt() {
