@@ -120,7 +120,7 @@ Game.prototype.checkIfGameOver = function() {
     this.gameOver = true; 
     music.pause();
     music.currentTime = 0;
-    setTimeout(this.onGameOver, 500);
+    this.onGameOver();
   }
 }
 
@@ -130,7 +130,7 @@ Game.prototype.checkIfWin = function() {
     this.gameOver = true; 
     music.pause();
     music.currentTime = 0;
-    setTimeout(this.onWin, 500);
+    this.onWin();
   }
 }
 
