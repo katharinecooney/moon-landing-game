@@ -6,13 +6,13 @@ function Star(canvas, y) {
   this.y = y;
   this.speed = 3;
   this.direction = -2;
+  this.image = new Image();
+  this.image.src = './images/star.png';
 }
 
 // places the star on the canvas
 Star.prototype.draw = function() {
-  let img = document.createElement('img');
-  img.src = '../images/star.png';
-  this.ctx.drawImage(img, this.x, this.y, this.size, this.size);
+  this.ctx.drawImage(this.image, this.x, this.y, this.size, this.size);
 }
 
 // updates the x position of the star

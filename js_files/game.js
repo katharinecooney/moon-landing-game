@@ -1,6 +1,6 @@
 'use strict';
 
-function Game(canvas) {
+function Game(canvas, level) {
   this.rocket = null;
   this.stars = [];
   this.moon = null;
@@ -8,6 +8,7 @@ function Game(canvas) {
   this.ctx = this.canvas.getContext('2d');
   this.timeRemaining = 10;
   this.gameOver = false;
+  this.level = level;
 }
 
 // starts the game
@@ -17,20 +18,39 @@ Game.prototype.startLoop = function() {
   this.comets = [];
   this.stars = [];
   
+
   // 'animates' the game when passed to window.requestAnimationFrame()
   let loop = () => {
 
-    // adds a new star randomly to the canvas
-    if(this.gameOver === false){
-      if(Math.random() > .96) {
-        let randomY = (Math.random() * this.canvas.height);
-        this.stars.push(new Star(this.canvas, randomY));
-      }
-      if(Math.random() > .98) {
-        let randomY = (Math.random() * this.canvas.height);
-        this.comets.push(new Comet(this.canvas, randomY));
+    if(this.level === 'easy'){
+      if(this.gameOver === false){
+        if(Math.random() > .96) {
+          let randomY = (Math.random() * this.canvas.height);
+          this.stars.push(new Star(this.canvas, randomY));
+        }
+        if(Math.random() > .99) {
+          let randomY = (Math.random() * this.canvas.height);
+          this.comets.push(new Comet(this.canvas, randomY));
+        }
       }
     }
+
+    if(this.level === 'hard'){
+      if(this.gameOver === false){
+        if(Math.random() > .96) {
+          let randomY = (Math.random() * this.canvas.height);
+          this.stars.push(new Star(this.canvas, randomY));
+        }
+        if(Math.random() > .85) {
+          let randomY = (Math.random() * this.canvas.height);
+          this.comets.push(new Comet(this.canvas, randomY));
+        }
+      }
+    }
+
+
+    // adds a new star randomly to the canvas
+    
     
     // on every frame, the canvas will be cleared, the new positions will be checked, and then the items will be drawn in their new positions
 
@@ -48,7 +68,9 @@ Game.prototype.startLoop = function() {
     starCounter.innerHTML = this.rocket.starCounter;
 
     // continues the loop
-    window.requestAnimationFrame(loop);
+    if (!this.gameOver) {
+      window.requestAnimationFrame(loop);
+    }
   }
 
   // starts the loop
@@ -88,10 +110,11 @@ Game.prototype.updateCanvas = function() {
 // will check if rocket caught any stars
 Game.prototype.checkIfStarsCaught = function() {
   let bell = new Audio();
-  bell.src = '../zapsplat_multimedia_notification_chime_bell_007_26407.mp3';
+  bell.src = "./zapsplat_multimedia_notification_chime_bell_007_26407.mp3";
   this.stars.forEach((star, index) => {
     const isColliding = this.rocket.checkForStars(star);
     if(isColliding){
+
       bell.play();
       this.stars.splice(index, 1);
       this.rocket.countStarsCaught();
@@ -102,7 +125,7 @@ Game.prototype.checkIfStarsCaught = function() {
 
 Game.prototype.checkIfCometCollision = function() {
   let laser = new Audio();
-  laser.src = '../sound_spark_Laser-Like_Synth_Basic_Laser2_09.mp3';
+  laser.src = "./sound_spark_Laser-Like_Synth_Basic_Laser2_09.mp3";
   this.comets.forEach((comet, index) => {
     const isColliding = this.rocket.checkForComets(comet);
     if(isColliding){
@@ -126,11 +149,10 @@ Game.prototype.checkIfGameOver = function() {
 
 Game.prototype.checkIfWin = function() {
   if(this.rocket.starCounter === 5) {
-    // this.rocket.starCounter = 0;
     this.gameOver = true; 
-    // this.rocket.victory();
     music.pause();
     music.currentTime = 0;
+    // this.rocket.starCounter = 0;
     this.onWin();
   }
 }

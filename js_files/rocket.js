@@ -10,13 +10,13 @@ function Rocket(canvas) {
   this.xDirection = 0;
   this.yDirection = 0;
   this.starCounter = 0;
+  this.image = new Image();
+  this.image.src = "./images/start-up.png";
 }
 
 // puts the rocket on the canvas
 Rocket.prototype.draw = function() {
-  let img = document.createElement('img');
-  img.src = '../images/start-up.png';
-  this.ctx.drawImage(img, this.x, this.y, this.size, this.size);
+  this.ctx.drawImage(this.image, this.x, this.y, this.size, this.size);
 }
 
 // updates the rocket's x and y positions

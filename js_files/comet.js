@@ -11,7 +11,7 @@ function Comet(canvas, y) {
 // places the star on the canvas
 Comet.prototype.draw = function() {
   let img = document.createElement('img');
-  img.src = '../images/comet.png';
+  img.src = "./images/comet.png";
   this.ctx.drawImage(img, this.x, this.y, this.size, this.size);
 }
 

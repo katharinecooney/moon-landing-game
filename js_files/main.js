@@ -1,6 +1,6 @@
 'use strict';
 let music = new Audio();
-music.src = '../Mii Channel Theme - Nintendo Wii Music-[AudioTrimmer.com].mp3';
+music.src = "/Users/katharinecooney/Desktop/Ironhack/spaceGame/Mii Channel Theme - Nintendo Wii Music-[AudioTrimmer.com].mp3";
 
 function main(){
 
@@ -28,22 +28,22 @@ function main(){
           <h1>Moon Landing</h1>
           <p>Move the rocket and catch the stars</p>
           <div id="levelButtonContainer">
-            <button id="easy-button">Easy</button>
-            <button id="hard-button">Hard</button>
+            <button class="easy-button">Easy</button>
+            <button class="hard-button">Hard</button>
           </div>
         </div>
        </div>
        `
     );
 
-    let easyButton = document.querySelector('#easy-button');
+    let easyButton = document.querySelector('.easy-button');
     easyButton.addEventListener('click', function(){
-      // buildGameScreen();
+      buildGameScreen('easy');
     });
 
-    let hardButton = document.querySelector('#hard-button');
+    let hardButton = document.querySelector('.hard-button');
     hardButton.addEventListener('click', function(){
-      // buildGameScreen();
+      buildGameScreen('hard');
     });
   }
 
@@ -66,7 +66,7 @@ function main(){
   // }
   
   // this makes the actual game screen
-  function buildGameScreen() {
+  function buildGameScreen(level) {
     let gameScreen = buildDom(`
     <section id='game-container'>
       <section id="game-info">
@@ -76,7 +76,7 @@ function main(){
       <canvas></canvas>
       <section id='rules'>
         <div class='rules-div'>
-         <img id='rules-image' src="../images/keyboard.png">
+         <img id='rules-image' src="/Users/katharinecooney/Desktop/Ironhack/spaceGame/images/keyboard.png">
          <p id='rules-text'>Use the arrows to catch the stars. Avoid the comets! </p>
         </div>
       </section>
@@ -100,10 +100,14 @@ function main(){
     const canvas = document.querySelector('canvas');
     canvas.setAttribute('width', width);
     canvas.setAttribute('height', height);
-    canvas.style.background = "linear-gradient( rgba(6, 1, 11, 0.5), rgba(10, 5, 15, 0.5) ), url('../images/4k-wallpaper-astro-astrology-1146134.jpg') center / cover no-repeat  ";
+    canvas.style.background = "linear-gradient( rgba(6, 1, 11, 0.5), rgba(10, 5, 15, 0.5) ), url(./images/4k-wallpaper-astro-astrology-1146134.jpg) center / cover no-repeat";
 
     // we create a new game and store it in a variable
-    const game = new Game(canvas);
+    const game = new Game(canvas, level);
+
+    // we are passing the buildGameOverScreen method to the game.js file's callGameOverScreen so the file can access our method
+    game.callGameOverScreen(buildGameOverScreen);
+    game.callWinScreen(buildWinScreen);
 
     // we select the <section> that will contain our timer
     const timerDisplay = document.getElementById('timer');
@@ -122,11 +126,6 @@ function main(){
 
     // we finally run the game!
     game.startLoop();
-
-    // we are passing the buildGameOverScreen method to the game.js file's callGameOverScreen so the file can access our method
-    game.callGameOverScreen(buildGameOverScreen);
-    game.callWinScreen(buildWinScreen);
-   
 
     document.addEventListener('keydown', function(event){
       if(event.keyCode === 38) {
@@ -159,18 +158,22 @@ function main(){
 
   function buildGameOverScreen() {
     let failSound = new Audio();
-    failSound.src = '../zapsplat_cartoon_fail_negative_descending_musical_tuba_marimba_oboe_18126.mp3';
+    failSound.src = "";
     failSound.play();
     let gameOverScreen = buildDom(
       `<div id='game-over-container'>
         <div id='game-over-content'>
           <h1>Game Over!</h1>
-          <button id="replay-button">Replay</button>
+          <button class="replay-easy">Replay - Easy</button>
+          <button class="replay-hard">Replay - Hard </button>
         </div>
       </div>`
     );
-    let replayButton = document.querySelector('#replay-button');
-    replayButton.addEventListener('click', buildGameScreen);
+    let replayEasyButton = document.querySelector('.replay-easy');
+    replayEasyButton.addEventListener('click', buildGameScreen('easy'));
+
+    let replayHardButton = document.querySelector('.replay-hard');
+    replayHardButton.addEventListener('click', buildGameScreen('hard'));
   }
 
   function buildWinScreen() {
@@ -178,15 +181,23 @@ function main(){
       `<div id='win-container'>
         <div id='win-content'>
           <h1>You win!</h1>
-          <button id="replay-button">Replay</button>
+          <button class="replay-easy">Replay - Easy</button>
+          <button class="replay-hard">Replay - Hard </button>
         </div>
       </div>`
     );
-    let replayButton = document.querySelector('#replay-button');
-    replayButton.addEventListener('click', buildGameScreen);
-    let clapping = new Audio();
-    clapping.src = '../Applause Crowd Cheering sound effect-[AudioTrimmer.com].mp3';
-    clapping.play();
+    let replayEasyButton = document.querySelector('.replay-easy');
+    replayEasyButton.addEventListener('click', function() {
+      buildGameScreen('easy')
+    });
+
+    let replayHardButton = document.querySelector('.replay-hard');
+    replayHardButton.addEventListener('click', function () {
+      buildGameScreen('hard')
+    });
+    // let clapping = new Audio();
+    // clapping.src = "/Users/katharinecooney/Desktop/Ironhack/spaceGame/Applause Crowd Cheering sound effect-[AudioTrimmer.com].mp3";
+    // clapping.play();
   }
     
   // at the end of our function, we will call buildSplashSceen
