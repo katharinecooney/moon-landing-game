@@ -6,7 +6,7 @@ function Game(canvas, level) {
   this.moon = null;
   this.canvas = canvas;
   this.ctx = this.canvas.getContext('2d');
-  this.timeRemaining = 10;
+  this.timeRemaining = 20;
   this.gameOver = false;
   this.level = level;
 }
@@ -43,7 +43,7 @@ Game.prototype.startLoop = function() {
           let randomY = (Math.random() * this.canvas.height);
           this.stars.push(new Star(this.canvas, randomY));
         }
-        if(Math.random() > .85) {
+        if(Math.random() > .94) {
           let randomY = (Math.random() * this.canvas.height);
           this.comets.push(new Comet(this.canvas, randomY));
         }
@@ -148,7 +148,7 @@ Game.prototype.checkIfGameOver = function() {
 
 // will check if rocket gets 5 stars
 Game.prototype.checkIfWin = function() {
-  if(this.rocket.starCounter === 5) {
+  if(this.rocket.starCounter === 15) {
     this.gameOver = true; 
     music.pause();
     music.currentTime = 0;

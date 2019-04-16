@@ -50,7 +50,7 @@ function main(){
       <canvas></canvas>
       <section id='rules'>
         <div class='rules-div'>
-         <img id='rules-image' src="/Users/katharinecooney/Desktop/Ironhack/spaceGame/images/keyboard.png">
+         <img id='rules-image' src="../images/keyboard.png">
          <p id='rules-text'>Use the arrows to catch the stars. Avoid the comets! </p>
         </div>
       </section>
