@@ -1,6 +1,6 @@
 'use strict';
 let music = new Audio();
-music.src = "/Users/katharinecooney/Desktop/Ironhack/spaceGame/Mii Channel Theme - Nintendo Wii Music-[AudioTrimmer.com].mp3";
+music.src = "../gameMusic.mp3";
 
 function main(){
 
@@ -156,7 +156,7 @@ function main(){
       buildGameScreen('hard');
     });
     let failMusic = new Audio();
-    failMusic.src = "/Users/katharinecooney/Desktop/Ironhack/spaceGame/zapsplat_cartoon_fail_negative_descending_musical_tuba_marimba_oboe_18126.mp3";
+    failMusic.src = "../failMusic.mp3";
     failMusic.play();
   }
 
@@ -185,7 +185,7 @@ function main(){
     });
 
     let clapping = new Audio();
-    clapping.src = "/Users/katharinecooney/Desktop/Ironhack/spaceGame/Applause Crowd Cheering sound effect-[AudioTrimmer.com].mp3";
+    clapping.src = "../applause.mp3";
     clapping.play();
   }
     
