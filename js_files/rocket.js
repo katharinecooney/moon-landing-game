@@ -56,10 +56,6 @@ Rocket.prototype.countCometsStruck = function() {
   this.starCounter--;
 }
 
-// Rocket.prototype.shareStarCounter = function() {
-//   return this.starCounter;
-// }
-
 // check 'collisions' with star
 Rocket.prototype.checkForStars = function(star) {
   const collisionRight = this.x + this.size / 2 > star.x - star.size / 2;

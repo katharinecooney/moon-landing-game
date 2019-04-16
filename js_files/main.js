@@ -12,15 +12,7 @@ function main(){
     return mainElement;
   }
 
-//***************************************************///
- // add easy button and hard button
-  // assign each button an ID
-  // make a function that will store the button's id (use a parameter!)
-  // assign each button an onClick attribute
-  // onClick = "<functionName>(this.id)"
-
   // this will make our intro screen
-
   function buildSplashScreen() {  
     let splashScreen = buildDom(
       `<div id='splash-container'>
@@ -47,24 +39,6 @@ function main(){
     });
   }
 
-  
-  // function buildSplashScreen() {
-  //   let splashScreen = buildDom(
-  //     `<div id='splash-container'>
-  //       <div id='splash-content'>
-  //         <h1>Moon Landing</h1>
-  //         <p>Move the rocket and catch the stars</p>
-  //         <button id="start-button">Start</button>
-  //       </div>
-  //      </div>
-  //      `
-  //   );
-  //   let startButton = document.querySelector('#start-button');
-  //   startButton.addEventListener('click', function(){
-  //     buildGameScreen();
-  //   });
-  // }
-  
   // this makes the actual game screen
   function buildGameScreen(level) {
     let gameScreen = buildDom(`
@@ -199,7 +173,7 @@ function main(){
         </div>
       </div>`
     );
-    
+
     let replayEasyButton = document.querySelector('.replay-easy');
     replayEasyButton.addEventListener('click', function() {
       buildGameScreen('easy');
