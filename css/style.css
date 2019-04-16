@@ -46,7 +46,8 @@ p {
   background: #c31432;  
   background: -webkit-linear-gradient(to right, #240b36, #c31432);  
   background: linear-gradient(to right, #240b36, #c31432); 
-  color: white;
+  background: linear-gradient( rgba(6, 1, 11, 0.7), rgba(10, 5, 15, 0.7) ), url('https://blenderartists.org/uploads/default/original/4X/4/2/f/42f6c9b37b58198f8d05207648e1938619473bc6.jpg') center / cover no-repeat;
+  color: rgb(240, 188, 253);
 }
 
 #splash-content,
@@ -57,11 +58,6 @@ p {
   align-items: center;
   justify-content: center;
   margin: auto;
-}
-
-#win-container {
-  background: linear-gradient( rgba(6, 1, 11, 0.7), rgba(10, 5, 15, 0.7) ), url('https://blenderartists.org/uploads/default/original/4X/4/2/f/42f6c9b37b58198f8d05207648e1938619473bc6.jpg') center / cover no-repeat;
-  color: rgb(240, 188, 253);
 }
 
 /******************** BUTTONS **********************/
@@ -76,19 +72,20 @@ button {
   border: none;
 }
 
-#levelButtonContainer {
+#levelButtonContainer,
+.replayLevelButtonContainer {
   display: flex;
   justify-content: space-between;
   width: 250px;
 }
 
-#splash-content button,
-#game-over-content button {
+#splash-content.replayLevelButtonContainer button,
+#game-over-content.replayLevelButtonContainer button {
   box-shadow: -3px 3px 10px rgba(175, 172, 172, 0.555);
 }
 
-#win-content button {
-  background-color: rgb(92, 3, 114);
+#win-content.replayLevelButtonContainer button {
+  background-color: rgba(74, 3, 94, 0.753);
   box-shadow: 3px 3px 5px rgba(171, 162, 173, 0.24);
 }
 
@@ -132,6 +129,12 @@ button {
   margin-top: -6px;
 }
 
+#rules div.rules-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #rules-image {
   width: 80px;
   padding: 0 20px 30px 20px;
@@ -142,11 +145,6 @@ button {
   padding: 0 20px 20px 0;
 }
 
-#rules div.rules-div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 /******************** RESPONSIVE **********************/
 
 @media (max-width: 600px) {

@@ -157,23 +157,30 @@ function main(){
   }
 
   function buildGameOverScreen() {
-    let failSound = new Audio();
-    failSound.src = "";
-    failSound.play();
+    // let failSound = new Audio();
+    // failSound.src = "../zapsplat_cartoon_fail_negative_descending_musical_tuba_marimba_oboe_18126.mp3";
+    // failSound.play();
     let gameOverScreen = buildDom(
       `<div id='game-over-container'>
         <div id='game-over-content'>
           <h1>Game Over!</h1>
-          <button class="replay-easy">Replay - Easy</button>
-          <button class="replay-hard">Replay - Hard </button>
+          <p>Play again?</p>
+          <div class="replayLevelButtonContainer">
+            <button class="replay-easy">Easy</button>
+            <button class="replay-hard">Hard </button>
+          </div>
         </div>
       </div>`
     );
     let replayEasyButton = document.querySelector('.replay-easy');
-    replayEasyButton.addEventListener('click', buildGameScreen('easy'));
+    replayEasyButton.addEventListener('click', function(){
+      buildGameScreen('easy');
+    });
 
     let replayHardButton = document.querySelector('.replay-hard');
-    replayHardButton.addEventListener('click', buildGameScreen('hard'));
+    replayHardButton.addEventListener('click', function(){
+      buildGameScreen('hard');
+    });
   }
 
   function buildWinScreen() {
@@ -181,23 +188,26 @@ function main(){
       `<div id='win-container'>
         <div id='win-content'>
           <h1>You win!</h1>
-          <button class="replay-easy">Replay - Easy</button>
-          <button class="replay-hard">Replay - Hard </button>
+          <p>Play again?</p>
+          <div class="replayLevelButtonContainer">
+            <button class="replay-easy">Easy</button>
+            <button class="replay-hard">Hard </button>
+          </div>
         </div>
       </div>`
     );
     let replayEasyButton = document.querySelector('.replay-easy');
     replayEasyButton.addEventListener('click', function() {
-      buildGameScreen('easy')
+      buildGameScreen('easy');
     });
 
     let replayHardButton = document.querySelector('.replay-hard');
     replayHardButton.addEventListener('click', function () {
-      buildGameScreen('hard')
+      buildGameScreen('hard');
     });
-    // let clapping = new Audio();
-    // clapping.src = "/Users/katharinecooney/Desktop/Ironhack/spaceGame/Applause Crowd Cheering sound effect-[AudioTrimmer.com].mp3";
-    // clapping.play();
+    let clapping = new Audio();
+    clapping.src = "/Users/katharinecooney/Desktop/Ironhack/spaceGame/Applause Crowd Cheering sound effect-[AudioTrimmer.com].mp3";
+    clapping.play();
   }
     
   // at the end of our function, we will call buildSplashSceen

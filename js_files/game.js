@@ -22,6 +22,7 @@ Game.prototype.startLoop = function() {
   // 'animates' the game when passed to window.requestAnimationFrame()
   let loop = () => {
 
+    // this block will run if the player chooses 'easy mode'
     if(this.level === 'easy'){
       if(this.gameOver === false){
         if(Math.random() > .96) {
@@ -35,6 +36,7 @@ Game.prototype.startLoop = function() {
       }
     }
 
+    // this block will run if the player chooses 'hard mode'
     if(this.level === 'hard'){
       if(this.gameOver === false){
         if(Math.random() > .96) {
@@ -48,10 +50,6 @@ Game.prototype.startLoop = function() {
       }
     }
 
-
-    // adds a new star randomly to the canvas
-    
-    
     // on every frame, the canvas will be cleared, the new positions will be checked, and then the items will be drawn in their new positions
 
     // we will also be checking for collisions, and to see if the time has run out or the user caught enough stars
@@ -123,6 +121,7 @@ Game.prototype.checkIfStarsCaught = function() {
   });
 }
 
+// will check if rocket collides with any comets
 Game.prototype.checkIfCometCollision = function() {
   let laser = new Audio();
   laser.src = "./sound_spark_Laser-Like_Synth_Basic_Laser2_09.mp3";
@@ -137,9 +136,9 @@ Game.prototype.checkIfCometCollision = function() {
   });
 }
 
+// will check if time runs out
 Game.prototype.checkIfGameOver = function() {
   if(this.timeRemaining === 0){
-    // this.rocket.starCounter = 0;
     this.gameOver = true; 
     music.pause();
     music.currentTime = 0;
@@ -147,20 +146,18 @@ Game.prototype.checkIfGameOver = function() {
   }
 }
 
+// will check if rocket gets 5 stars
 Game.prototype.checkIfWin = function() {
   if(this.rocket.starCounter === 5) {
     this.gameOver = true; 
     music.pause();
     music.currentTime = 0;
-    // this.rocket.starCounter = 0;
     this.onWin();
   }
 }
 
 // to access the buildGameOver function from main.js, we need to create a function in this file that can receive buildGameOver as a callback and save it by another name, which we can use in this file
-
 // i think we can't access that function directly because game.js loads before main.js --> main js can access functions directly from game.js because game.js loads first! 
-
 Game.prototype.callGameOverScreen = function(callback) { 
    this.onGameOver = callback;
 }
