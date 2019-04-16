@@ -199,9 +199,9 @@ Task definition in order of priority
 ### Git
 URls for the project repo and deploy
 [Link Repo](https://github.com/katharinecooney/moon-landing-game)
-<!-- [Link Deploy](http://github.com) -->
+[Link Deploy](https://katharinecooney.github.io/space-game/)
 
 
-<!-- ### Slides
+### Slides
 URls for the project presentation (slides)
-[Link Slides.com](http://slides.com) -->
+[Link Slides.com](https://docs.google.com/presentation/d/1mWXpsgZwPn2XqaXxkcVYCikIa7Y9EOQYFiVdjZb4xpY/edit?usp=sharing)

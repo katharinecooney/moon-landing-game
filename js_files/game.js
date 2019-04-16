@@ -18,7 +18,6 @@ Game.prototype.startLoop = function() {
   this.comets = [];
   this.stars = [];
   
-
   // 'animates' the game when passed to window.requestAnimationFrame()
   let loop = () => {
 
@@ -74,7 +73,6 @@ Game.prototype.startLoop = function() {
   // starts the loop
   window.requestAnimationFrame(loop); 
 }
-
 
 // places the rocket and each star on the canvas
 Game.prototype.drawCanvas = function() {
