@@ -18,8 +18,10 @@ html {
 h1 {
   text-align: center;
   font-family: 'Bungee Shade', sans-serif;
+  font-weight: 100;
   font-size: 4em;
   margin: 25px 0 35px 0;
+  padding: 0 20px;
 }
 
 p {
@@ -74,6 +76,12 @@ button {
   border: none;
 }
 
+#levelButtonContainer {
+  display: flex;
+  justify-content: space-between;
+  width: 250px;
+}
+
 #splash-content button,
 #game-over-content button {
   box-shadow: -3px 3px 10px rgba(175, 172, 172, 0.555);
@@ -84,7 +92,7 @@ button {
   box-shadow: 3px 3px 5px rgba(171, 162, 173, 0.24);
 }
 
-/******************** TIMER AND COUNTER **********************/
+/************ TIMER AND COUNTER **************/
 
 #game-info {
   display: flex;

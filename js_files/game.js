@@ -128,6 +128,7 @@ Game.prototype.checkIfWin = function() {
   if(this.rocket.starCounter === 5) {
     // this.rocket.starCounter = 0;
     this.gameOver = true; 
+    // this.rocket.victory();
     music.pause();
     music.currentTime = 0;
     this.onWin();

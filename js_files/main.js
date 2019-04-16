@@ -12,26 +12,58 @@ function main(){
     return mainElement;
   }
 
+//***************************************************///
+ // add easy button and hard button
+  // assign each button an ID
+  // make a function that will store the button's id (use a parameter!)
+  // assign each button an onClick attribute
+  // onClick = "<functionName>(this.id)"
+
   // this will make our intro screen
-  function buildSplashScreen() {
+
+  function buildSplashScreen() {  
     let splashScreen = buildDom(
       `<div id='splash-container'>
         <div id='splash-content'>
           <h1>Moon Landing</h1>
           <p>Move the rocket and catch the stars</p>
-          <button id="start-button">Start</button>
+          <div id="levelButtonContainer">
+            <button id="easy-button">Easy</button>
+            <button id="hard-button">Hard</button>
+          </div>
         </div>
        </div>
        `
     );
 
-    // <p>Use the <img src="../images/keyboard.png"> arrows to move the rocket</p>
+    let easyButton = document.querySelector('#easy-button');
+    easyButton.addEventListener('click', function(){
+      // buildGameScreen();
+    });
 
-    let startButton = document.querySelector('#start-button');
-    startButton.addEventListener('click', function(){
-      buildGameScreen();
+    let hardButton = document.querySelector('#hard-button');
+    hardButton.addEventListener('click', function(){
+      // buildGameScreen();
     });
   }
+
+  
+  // function buildSplashScreen() {
+  //   let splashScreen = buildDom(
+  //     `<div id='splash-container'>
+  //       <div id='splash-content'>
+  //         <h1>Moon Landing</h1>
+  //         <p>Move the rocket and catch the stars</p>
+  //         <button id="start-button">Start</button>
+  //       </div>
+  //      </div>
+  //      `
+  //   );
+  //   let startButton = document.querySelector('#start-button');
+  //   startButton.addEventListener('click', function(){
+  //     buildGameScreen();
+  //   });
+  // }
   
   // this makes the actual game screen
   function buildGameScreen() {
@@ -62,7 +94,6 @@ function main(){
       canvas.setAttribute('width', width);
       canvas.setAttribute('height', height);
     })
-
 
 
     // we select and style the canvas
@@ -143,9 +174,6 @@ function main(){
   }
 
   function buildWinScreen() {
-    let clapping = new Audio();
-    clapping.src = '../Applause Crowd Cheering sound effect.mp3';
-    clapping.play();
     let winScreen = buildDom(
       `<div id='win-container'>
         <div id='win-content'>
@@ -156,6 +184,9 @@ function main(){
     );
     let replayButton = document.querySelector('#replay-button');
     replayButton.addEventListener('click', buildGameScreen);
+    let clapping = new Audio();
+    clapping.src = '../Applause Crowd Cheering sound effect-[AudioTrimmer.com].mp3';
+    clapping.play();
   }
     
   // at the end of our function, we will call buildSplashSceen

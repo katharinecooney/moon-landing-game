@@ -81,6 +81,4 @@ Rocket.prototype.checkForComets = function(comet) {
 Rocket.prototype.victory = function() {
   this.y = this.canvas.height / 2;
   this.x = this.canvas.width / 2;
-  
-  
 }
