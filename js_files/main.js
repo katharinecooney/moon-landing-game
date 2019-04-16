@@ -1,6 +1,6 @@
 'use strict';
 let music = new Audio();
-music.src = "../gameMusic.mp3";
+music.src = "./gameMusic.mp3";
 
 function main(){
 
@@ -157,7 +157,7 @@ function main(){
     });
     window.addEventListener('load', function(){
       let failMusic = new Audio();
-      failMusic.src = "../failMusic.mp3";
+      failMusic.src = "./failMusic.mp3";
       failMusic.play();
     });
     // let failMusic = new Audio();
@@ -190,7 +190,7 @@ function main(){
     });
 
     let clapping = new Audio();
-    clapping.src = "../applause.mp3";
+    clapping.src = "./applause.mp3";
     clapping.play();
   }
     
