@@ -155,9 +155,14 @@ function main(){
     replayHardButton.addEventListener('click', function(){
       buildGameScreen('hard');
     });
-    let failMusic = new Audio();
-    failMusic.src = "../failMusic.mp3";
-    failMusic.play();
+    window.addEventListener('load', function(){
+      let failMusic = new Audio();
+      failMusic.src = "../failMusic.mp3";
+      failMusic.play();
+    });
+    // let failMusic = new Audio();
+    // failMusic.src = "../failMusic.mp3";
+    // failMusic.play();
   }
 
   function buildWinScreen() {
