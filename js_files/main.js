@@ -181,6 +181,9 @@ function main(){
     replayHardButton.addEventListener('click', function(){
       buildGameScreen('hard');
     });
+    let failMusic = new Audio();
+    failMusic.src = "/Users/katharinecooney/Desktop/Ironhack/spaceGame/zapsplat_cartoon_fail_negative_descending_musical_tuba_marimba_oboe_18126.mp3";
+    failMusic.play();
   }
 
   function buildWinScreen() {
@@ -196,6 +199,7 @@ function main(){
         </div>
       </div>`
     );
+    
     let replayEasyButton = document.querySelector('.replay-easy');
     replayEasyButton.addEventListener('click', function() {
       buildGameScreen('easy');
@@ -205,6 +209,7 @@ function main(){
     replayHardButton.addEventListener('click', function () {
       buildGameScreen('hard');
     });
+
     let clapping = new Audio();
     clapping.src = "/Users/katharinecooney/Desktop/Ironhack/spaceGame/Applause Crowd Cheering sound effect-[AudioTrimmer.com].mp3";
     clapping.play();
