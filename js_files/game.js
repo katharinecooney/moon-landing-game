@@ -42,7 +42,7 @@ Game.prototype.startLoop = function() {
           let randomY = (Math.random() * this.canvas.height);
           this.stars.push(new Star(this.canvas, randomY));
         }
-        if(Math.random() > .95) {
+        if(Math.random() > .96) {
           let randomY = (Math.random() * this.canvas.height);
           this.comets.push(new Comet(this.canvas, randomY));
         }
@@ -108,7 +108,6 @@ Game.prototype.clearCanvas = function() {
 // will call the update function for both the rocket and the stars
 Game.prototype.updateCanvas = function() {
   this.rocket.update();
-  // this.moon.update();
   this.comets.forEach(function(comet){
     comet.update();
   });
@@ -124,11 +123,9 @@ Game.prototype.checkIfStarsCaught = function() {
   this.stars.forEach((star, index) => {
     const isColliding = this.rocket.checkForStars(star);
     if(isColliding){
-
       bell.play();
       this.stars.splice(index, 1);
       this.rocket.countStarsCaught();
-      console.log('you caught a star!');
     }
   });
 }
@@ -143,7 +140,6 @@ Game.prototype.checkIfCometCollision = function() {
       laser.play();
       this.comets.splice(index, 1);
       this.rocket.countCometsStruck();
-      console.log('you hit a comet!');
     }
   });
 }

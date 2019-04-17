@@ -2,7 +2,7 @@
 let music = new Audio();
 music.src = "./gameSoundtrack.mp3";
 
-function main(){
+function main() {
 
   const mainElement = document.querySelector('main');
 
@@ -53,7 +53,6 @@ function main(){
       <section id="game-info">
         <img id="star-counter-image" src="./images/favorite.png">
         <section id="star-counter"></section>
-        
         <section id="timer"></section>
         <img id="timer-image" src="./images/clock.png">
       </section>
@@ -61,7 +60,7 @@ function main(){
       <section id='rules'>
         <div class='rules-div'>
          <img id='rules-image' src="./images/keyboard.png">
-         <p id='rules-text'>Use the arrows to catch the stars. Avoid the comets! </p>
+         <p id='rules-text'>Use the arrows to catch the stars. Avoid the comets!</p>
         </div>
       </section>
     `);
@@ -77,8 +76,7 @@ function main(){
       height = gameContainerElement.offsetHeight;
       canvas.setAttribute('width', width);
       canvas.setAttribute('height', height);
-    })
-
+    });
 
     // we select and style the canvas
     const canvas = document.querySelector('canvas');
@@ -99,14 +97,14 @@ function main(){
     music.play();
     
     // we create a function that will subtract from our game.timeRemaining 
-    function timeIt() {
+    function timeTracker() {
         game.timeRemaining--;
         timerDisplay. innerHTML = game.timeRemaining;
         return game.timeRemaining;
     }
 
     // we run our above function so that it subtracts from our game.timeRemaining every second
-    setInterval(timeIt, 1000);
+    setInterval(timeTracker, 1000);
 
     // we finally run the game!
     game.startLoop();
