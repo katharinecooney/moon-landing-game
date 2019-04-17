@@ -74,7 +74,7 @@ function main(){
     const canvas = document.querySelector('canvas');
     canvas.setAttribute('width', width);
     canvas.setAttribute('height', height);
-    canvas.style.background = "linear-gradient( rgba(6, 1, 11, 0.5), rgba(10, 5, 15, 0.5) ), url(./images/4k-wallpaper-astro-astrology-1146134.jpg) center / cover no-repeat";
+    canvas.style.background = "linear-gradient( rgba(6, 1, 11, 0.5), rgba(10, 5, 15, 0.5) ), url(../images/4k-wallpaper-astro-astrology-1146134.jpg) center / cover no-repeat";
 
     // we create a new game and store it in a variable
     const game = new Game(canvas, level);
@@ -147,11 +147,15 @@ function main(){
     let replayEasyButton = document.querySelector('.replay-easy');
     replayEasyButton.addEventListener('click', function(){
       buildGameScreen('easy');
+      failMusic.pause();
+      failMusic.currentTime = 0;
     });
 
     let replayHardButton = document.querySelector('.replay-hard');
     replayHardButton.addEventListener('click', function(){
       buildGameScreen('hard');
+      failMusic.pause();
+      failMusic.currentTime = 0;
     });
 
     let failMusic = new Audio();
@@ -176,11 +180,15 @@ function main(){
     let replayEasyButton = document.querySelector('.replay-easy');
     replayEasyButton.addEventListener('click', function() {
       buildGameScreen('easy');
+      clapping.pause();
+      clapping.currentTime = 0;
     });
 
     let replayHardButton = document.querySelector('.replay-hard');
     replayHardButton.addEventListener('click', function () {
       buildGameScreen('hard');
+      clapping.pause();
+      clapping.currentTime = 0;
     });
 
     let clapping = new Audio();
