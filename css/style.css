@@ -103,26 +103,38 @@ button.replay-hard {
 #game-info {
   display: flex;
   justify-content: space-between;
+  height: 60px;
+  background-color: rgb(6, 1, 11);
 }
 
 #star-counter,
 #timer {
-  height: 50px;
   flex: 1;
   border: 1px solid black;
   font-size: 2em;
-  background-color: rgb(6, 1, 11);
   color: white;
 }
 
 #star-counter {
   text-align: left;
-  padding: 10px 0 10px 20px;
+  padding-top: 5px;
+}
+
+#star-counter-image {
+  width: 40px;
+  height: 50px;
+  padding: 5px 15px 5px 20px; 
+}
+
+#timer-image {
+  width: 55px;
+  height: 55px;
+  padding: 5px 20px 5px 5px;
 }
 
 #timer {
   text-align: right;
-  padding: 10px 20px 10px 0;
+  padding-top: 5px;
 }
 
 /******************** RULES **********************/

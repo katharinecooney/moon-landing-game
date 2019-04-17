@@ -45,8 +45,11 @@ function main(){
     let gameScreen = buildDom(`
     <section id='game-container'>
       <section id="game-info">
+        <img id="star-counter-image" src="../images/favorite.png">
         <section id="star-counter"></section>
+        
         <section id="timer"></section>
+        <img id="timer-image" src="../images/clock.png">
       </section>
       <canvas></canvas>
       <section id='rules'>
