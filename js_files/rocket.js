@@ -6,7 +6,7 @@ function Rocket(canvas) {
   this.x = 50;
   this.y = 100;
   this.size = 50;
-  this.speed = 8;
+  this.speed = 10;
   this.xDirection = 0;
   this.yDirection = 0;
   this.starCounter = 0;

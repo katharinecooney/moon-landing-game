@@ -18,7 +18,8 @@ function main(){
       `<div id='splash-container'>
         <div id='splash-content'>
           <h1>Moon Landing</h1>
-          <p>Move the rocket and catch the stars</p>
+          <p>You have 20 seconds to catch 20 stars.</p> 
+          <p>Watch out for the comets! If you strike a comet, you will lose a star!</p>
           <div id="levelButtonContainer">
             <button class="easy-button">Easy</button>
             <button class="hard-button">Hard</button>

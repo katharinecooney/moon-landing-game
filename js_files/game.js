@@ -146,7 +146,7 @@ Game.prototype.checkIfGameOver = function() {
 
 // will check if rocket gets 5 stars
 Game.prototype.checkIfWin = function() {
-  if(this.rocket.starCounter === 15) {
+  if(this.rocket.starCounter === 20) {
     this.gameOver = true; 
     music.pause();
     music.currentTime = 0;
