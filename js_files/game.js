@@ -38,7 +38,21 @@ Game.prototype.startLoop = function() {
     // this block will run if the player chooses 'hard mode'
     if(this.level === 'hard'){
       if(this.gameOver === false){
-        if(Math.random() > .96) {
+        if(Math.random() > .97) {
+          let randomY = (Math.random() * this.canvas.height);
+          this.stars.push(new Star(this.canvas, randomY));
+        }
+        if(Math.random() > .95) {
+          let randomY = (Math.random() * this.canvas.height);
+          this.comets.push(new Comet(this.canvas, randomY));
+        }
+      }
+    }
+
+    // this block will run if the player chooses 'impossible mode'
+    if(this.level === 'impossible'){
+      if(this.gameOver === false){
+        if(Math.random() > .97) {
           let randomY = (Math.random() * this.canvas.height);
           this.stars.push(new Star(this.canvas, randomY));
         }

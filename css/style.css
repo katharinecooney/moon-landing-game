@@ -72,32 +72,44 @@ p {
 }
 
 /******************** BUTTONS **********************/
+#levelButtonContainer,
+.replayLevelButtonContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15px;
+}
 
-button {
-  padding: 10px 20px;
+/* button {
+  padding: 15px 0;
   font-size: 1.5em;
   border: none;
   border-radius: 10px;
   background-color: rgba(42, 1, 46, 0.664);
   color: white;
-}
-
-/***** Button Containers *******/
-#levelButtonContainer,
-.replayLevelButtonContainer {
-  display: flex;
-  justify-content: space-between;
-  width: 250px;
-  margin-top: 15px;
-}
+} */
 
 button.easy-button,
 button.hard-button,
+button.impossible-button,
 button.replay-easy,
-button.replay-hard {
+button.replay-hard,
+button.replay-impossible {
   box-shadow: -3px 3px 10px rgba(175, 172, 172, 0.555);
+  width: 210px;
+  margin: 10px 15px;
+  padding: 15px 0;
+  font-size: 1.5em;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(42, 1, 46, 0.664);
+  color: white;
 } 
 
+#win-content button{
+  background-color: rgba(116, 24, 124, 0.89);
+}
 /************ TIMER AND COUNTER **************/
 
 #game-info {
@@ -177,8 +189,14 @@ button.replay-hard {
     font-size: 0.75em;
   }
 
-  button {
+  button.easy-button,
+  button.hard-button,
+  button.impossible-button,
+  button.replay-easy,
+  button.replay-hard,
+  button.replay-impossible {
     font-size: 1em;
+    width: 180px;
   }
 
   #rules-image {

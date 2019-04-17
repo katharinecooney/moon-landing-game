@@ -23,6 +23,7 @@ function main(){
           <div id="levelButtonContainer">
             <button class="easy-button">Easy</button>
             <button class="hard-button">Hard</button>
+            <button class="impossible-button">Impossible</button>
           </div>
         </div>
        </div>
@@ -37,6 +38,11 @@ function main(){
     let hardButton = document.querySelector('.hard-button');
     hardButton.addEventListener('click', function(){
       buildGameScreen('hard');
+    });
+
+    let impossibleButton = document.querySelector('.impossible-button');
+    impossibleButton.addEventListener('click', function(){
+      buildGameScreen('impossible');
     });
   }
 
@@ -143,6 +149,7 @@ function main(){
           <div class="replayLevelButtonContainer">
             <button class="replay-easy">Easy</button>
             <button class="replay-hard">Hard </button>
+            <button class="replay-impossible">Impossible</button>
           </div>
         </div>
       </div>`
@@ -162,6 +169,13 @@ function main(){
       failMusic.currentTime = 0;
     });
 
+    let replayImpossibleButton = document.querySelector('.replay-impossible');
+    replayImpossibleButton.addEventListener('click', function(){
+      buildGameScreen('impossible');
+      failMusic.pause();
+      failMusic.currentTime = 0;
+    });
+
     let failMusic = new Audio();
     failMusic.src = "./failMusic.mp3";
     failMusic.play();
@@ -176,6 +190,7 @@ function main(){
           <div class="replayLevelButtonContainer">
             <button class="replay-easy">Easy</button>
             <button class="replay-hard">Hard </button>
+            <button class="replay-impossible">Impossible</button>
           </div>
         </div>
       </div>`
@@ -191,6 +206,13 @@ function main(){
     let replayHardButton = document.querySelector('.replay-hard');
     replayHardButton.addEventListener('click', function () {
       buildGameScreen('hard');
+      clapping.pause();
+      clapping.currentTime = 0;
+    });
+
+    let replayImpossibleButton = document.querySelector('.replay-impossible');
+    replayImpossibleButton.addEventListener('click', function(){
+      buildGameScreen('impossible');
       clapping.pause();
       clapping.currentTime = 0;
     });
