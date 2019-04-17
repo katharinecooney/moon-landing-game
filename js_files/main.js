@@ -1,6 +1,6 @@
 'use strict';
 let music = new Audio();
-music.src = "./gameMusic.mp3";
+music.src = "../gameSoundtrack.mp3";
 
 function main(){
 
