@@ -168,4 +168,8 @@ button.replay-hard {
   button {
     font-size: 1em;
   }
+
+  #rules-image {
+    width: 60px;
+  }
 }
