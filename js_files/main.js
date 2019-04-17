@@ -82,7 +82,7 @@ function main() {
     const canvas = document.querySelector('canvas');
     canvas.setAttribute('width', width);
     canvas.setAttribute('height', height);
-    canvas.style.background = "linear-gradient(rgba(6, 1, 11, 0.7), rgba(10, 5, 15, 0.7)), url('https://images-na.ssl-images-amazon.com/images/I/81kTrSqMuLL._SL1135_.jpg') center / cover no-repeat";
+    canvas.style.background = "linear-gradient(rgba(6, 1, 11, 0.5), rgba(10, 5, 15, 0.5)), url('https://images-na.ssl-images-amazon.com/images/I/81kTrSqMuLL._SL1135_.jpg') center / cover no-repeat";
 
     // we create a new game and store it in a variable
     const game = new Game(canvas, level);

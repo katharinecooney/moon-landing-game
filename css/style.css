@@ -48,8 +48,6 @@ p {
 }
 
 #win-container {
-  background: -webkit-linear-gradient(to right, #240b36, #c31432);  
-  background: linear-gradient(to right, #240b36, #c31432); 
   background: linear-gradient( rgba(6, 1, 11, 0.7), rgba(10, 5, 15, 0.7) ), url('https://blenderartists.org/uploads/default/original/4X/4/2/f/42f6c9b37b58198f8d05207648e1938619473bc6.jpg') center / cover no-repeat;
 }
 
@@ -81,15 +79,6 @@ p {
   margin-top: 15px;
 }
 
-/* button {
-  padding: 15px 0;
-  font-size: 1.5em;
-  border: none;
-  border-radius: 10px;
-  background-color: rgba(42, 1, 46, 0.664);
-  color: white;
-} */
-
 button.easy-button,
 button.hard-button,
 button.impossible-button,
@@ -107,8 +96,8 @@ button.replay-impossible {
   color: white;
 } 
 
-#win-content button{
-  background-color: rgba(116, 24, 124, 0.89);
+#win-content button {
+  background-color: rgba(83, 5, 90, 0.884);
 }
 /************ TIMER AND COUNTER **************/
 
@@ -133,7 +122,7 @@ button.replay-impossible {
 }
 
 #star-counter-image {
-  width: 40px;
+  width: 50px;
   height: 50px;
   padding: 5px 15px 5px 20px; 
 }
@@ -201,5 +190,22 @@ button.replay-impossible {
 
   #rules-image {
     width: 60px;
+  }
+
+  #levelButtonContainer,
+  .replayLevelButtonContainer {
+    width: 50%;
+  }
+}
+
+@media (max-width: 730px) {
+  button.easy-button,
+  button.hard-button,
+  button.impossible-button,
+  button.replay-easy,
+  button.replay-hard,
+  button.replay-impossible {
+    font-size: 1.2em;
+    width: 170px;
   }
 }
