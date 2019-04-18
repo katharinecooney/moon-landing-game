@@ -87,12 +87,12 @@ function main() {
     
 
     let bgImage = new Image();
-    bgImage.src = "https://images-na.ssl-images-amazon.com/images/I/81kTrSqMuLL._SL1135_.jpg";
+    bgImage.src = "../images/seamless-space.PNG";
 
     var backgroundImage = {
       img: bgImage,
       x: 0,
-      speed: -1,
+      speed: -3,
     
       move: function() {
         this.x += this.speed;
