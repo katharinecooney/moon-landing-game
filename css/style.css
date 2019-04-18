@@ -36,6 +36,9 @@ p {
 }
 
 /******************** SCREEN STYLES **********************/
+h1#game-title{
+  animation: yourAnimation 1s infinite alternate;
+}
 
 #splash-container,
 #game-over-container,
@@ -207,5 +210,16 @@ button.replay-impossible {
   button.replay-impossible {
     font-size: 1.2em;
     width: 170px;
+  }
+}
+
+@keyframes yourAnimation{
+  from {
+    transform: translateY(0px);
+    opacity: 0.6;
+  }
+  to {
+    transform: translateY(-25px);
+    opacity: 1;
   }
 }

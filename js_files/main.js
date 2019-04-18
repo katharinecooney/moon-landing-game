@@ -17,7 +17,7 @@ function main() {
     let splashScreen = buildDom(
       `<div id='splash-container'>
         <div id='splash-content'>
-          <h1>Moon Landing</h1>
+          <h1 id="game-title">Moon Landing</h1>
           <p>You have 20 seconds to catch 20 stars.</p> 
           <p>Watch out for the comets! If you strike a comet, you will lose a star!</p>
           <div id="levelButtonContainer">
