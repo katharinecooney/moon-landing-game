@@ -15,6 +15,7 @@ function Game(canvas, level) {
 Game.prototype.startLoop = function() {
   this.rocket = new Rocket(this.canvas);
   this.moon = new Moon(this.canvas);
+  this.background = new BackgroundImage(this.canvas);
   this.comets = [];
   this.stars = [];
   
@@ -90,6 +91,7 @@ Game.prototype.startLoop = function() {
 
 // places the rocket and each star on the canvas
 Game.prototype.drawCanvas = function() {
+  this.background.draw();
   this.rocket.draw();
   this.moon.draw();
   this.comets.forEach(function(comet){
@@ -107,7 +109,8 @@ Game.prototype.clearCanvas = function() {
 
 // will call the update function for both the rocket and the stars
 Game.prototype.updateCanvas = function() {
-  this.moveCanvas();
+  this.background.move();
+  // this.moveCanvas();
   this.rocket.update();
   this.comets.forEach(function(comet){
     comet.update();

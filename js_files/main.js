@@ -81,45 +81,41 @@ function main() {
     // we select and style the canvas
     const canvas = document.querySelector('canvas');
 //**********************************************/
-    let ctx = canvas.getContext('2d');
+    // let ctx = canvas.getContext('2d');
     canvas.setAttribute('width', width);
     canvas.setAttribute('height', height);
     
 
-    let bgImage = new Image();
-    bgImage.src = "./images/seamless space2.png";
-    // bgImage.width = '100vw';
-    // bgImage.setAttribute('background-repeat', repeat-x);
-    // bgImage.setAttribute('width', 5000);
-    // bgImage.setAttribute('background-size', 'cover');
+    // let bgImage = new Image();
+    // bgImage.src = "./images/seamless space2.png";
 
-    var backgroundImage = {
-      img: bgImage,
-      x: 0,
-      speed: -3,
+    // var backgroundImage = {
+    //   img: bgImage,
+    //   x: 0,
+    //   speed: -3,
     
-      move: function() {
-        this.x += this.speed;
-        this.x %= canvas.width;
-      },
+    //   move: function() {
+    //     this.x += this.speed;
+    //     this.x %= canvas.width;
+    //   },
     
-      draw: function() {
-        ctx.drawImage(this.img, this.x, 0);
-        if (this.speed < 0) {
-          ctx.drawImage(this.img, this.x + canvas.width, 0);
-        } else {
-          ctx.drawImage(this.img, this.x - this.img.width, 0);
-        }
-      },
-    };
+    //   draw: function() {
+    //     ctx.drawImage(this.img, this.x, 0);
+    //     if (this.speed < 0) {
+    //       ctx.drawImage(this.img, this.x + canvas.width, 0);
+    //     } else {
+    //       ctx.drawImage(this.img, this.x - this.img.width, 0);
+    //     }
+    //   },
+    // };
 
-    function updateCanvas() {
+    // function updateCanvas() {
       
-      backgroundImage.move();
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      backgroundImage.draw();
+    //   backgroundImage.move();
+    //   ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //   backgroundImage.draw();
     
-    }
+    // }
 
 
 //**********************************************/   
@@ -134,7 +130,7 @@ function main() {
     // we are passing the buildGameOverScreen method to the game.js file's callGameOverScreen so the file can access our method
     game.callGameOverScreen(buildGameOverScreen);
     game.callWinScreen(buildWinScreen);
-    game.canvasAnimation(updateCanvas);
+    // game.canvasAnimation(updateCanvas);
 
     // we select the <section> that will contain our timer
     const timerDisplay = document.getElementById('timer');
