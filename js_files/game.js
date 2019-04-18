@@ -66,14 +66,14 @@ Game.prototype.startLoop = function() {
     // on every frame, the canvas will be cleared, the new positions will be checked, and then the items will be drawn in their new positions
 
     // we will also be checking for collisions, and to see if the time has run out or the user caught enough stars
-    this.clearCanvas();
-    this.updateCanvas();
-    this.drawCanvas();
-    this.checkIfStarsCaught();
-    this.checkIfCometCollision();
-    this.checkIfWin();
-    this.checkIfGameOver();
-    
+      this.clearCanvas();
+      this.updateCanvas();
+      this.drawCanvas();
+      this.checkIfStarsCaught();
+      this.checkIfCometCollision();
+      this.checkIfWin();
+      this.checkIfGameOver();
+
     // updates the starCounter on the screen
     const starCounter = document.getElementById('star-counter');
     starCounter.innerHTML = this.rocket.starCounter;
@@ -107,6 +107,7 @@ Game.prototype.clearCanvas = function() {
 
 // will call the update function for both the rocket and the stars
 Game.prototype.updateCanvas = function() {
+  this.moveCanvas();
   this.rocket.update();
   this.comets.forEach(function(comet){
     comet.update();
@@ -172,6 +173,10 @@ Game.prototype.callGameOverScreen = function(callback) {
 
 Game.prototype.callWinScreen = function(callback) {  
   this.onWin = callback;
+}
+
+Game.prototype.canvasAnimation = function(callback){
+  this.moveCanvas = callback;
 }
 
 
