@@ -87,7 +87,11 @@ function main() {
     
 
     let bgImage = new Image();
-    bgImage.src = "./images/seamless-space.PNG";
+    bgImage.src = "./images/seamless space2.png";
+    // bgImage.width = '100vw';
+    // bgImage.setAttribute('background-repeat', repeat-x);
+    // bgImage.setAttribute('width', 5000);
+    // bgImage.setAttribute('background-size', 'cover');
 
     var backgroundImage = {
       img: bgImage,
