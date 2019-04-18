@@ -80,50 +80,9 @@ function main() {
 
     // we select and style the canvas
     const canvas = document.querySelector('canvas');
-//**********************************************/
-    // let ctx = canvas.getContext('2d');
     canvas.setAttribute('width', width);
     canvas.setAttribute('height', height);
     
-
-    // let bgImage = new Image();
-    // bgImage.src = "./images/seamless space2.png";
-
-    // var backgroundImage = {
-    //   img: bgImage,
-    //   x: 0,
-    //   speed: -3,
-    
-    //   move: function() {
-    //     this.x += this.speed;
-    //     this.x %= canvas.width;
-    //   },
-    
-    //   draw: function() {
-    //     ctx.drawImage(this.img, this.x, 0);
-    //     if (this.speed < 0) {
-    //       ctx.drawImage(this.img, this.x + canvas.width, 0);
-    //     } else {
-    //       ctx.drawImage(this.img, this.x - this.img.width, 0);
-    //     }
-    //   },
-    // };
-
-    // function updateCanvas() {
-      
-    //   backgroundImage.move();
-    //   ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //   backgroundImage.draw();
-    
-    // }
-
-
-//**********************************************/   
-    // canvas.setAttribute('width', width);
-    // canvas.setAttribute('height', height);
-    // canvas.style.background = "linear-gradient(rgba(6, 1, 11, 0.5), rgba(10, 5, 15, 0.5)), url('https://images-na.ssl-images-amazon.com/images/I/81kTrSqMuLL._SL1135_.jpg') center / cover no-repeat";
-
-
     // we create a new game and store it in a variable
     const game = new Game(canvas, level);
 

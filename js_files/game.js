@@ -178,9 +178,4 @@ Game.prototype.callWinScreen = function(callback) {
   this.onWin = callback;
 }
 
-Game.prototype.canvasAnimation = function(callback){
-  this.moveCanvas = callback;
-}
-
-
 
