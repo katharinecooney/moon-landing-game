@@ -37,7 +37,7 @@ p {
 
 /******************** SCREEN STYLES **********************/
 h1#game-title{
-  animation: yourAnimation 1s infinite alternate;
+  animation: bouncingTitle 1.5s infinite alternate;
 }
 
 #splash-container,
@@ -88,7 +88,7 @@ button.impossible-button,
 button.replay-easy,
 button.replay-hard,
 button.replay-impossible {
-  box-shadow: -3px 3px 10px rgba(175, 172, 172, 0.555);
+  box-shadow: -3px 5px 10px rgba(rgba(175, 172, 172, 0.555));
   width: 210px;
   margin: 10px 15px;
   padding: 15px 0;
@@ -101,6 +101,7 @@ button.replay-impossible {
 
 #win-content button {
   background-color: rgba(83, 5, 90, 0.884);
+  animation: yourAnimation 3s infinite alternate;
 }
 /************ TIMER AND COUNTER **************/
 
@@ -213,13 +214,22 @@ button.replay-impossible {
   }
 }
 
-@keyframes yourAnimation{
+@keyframes bouncingTitle{
   from {
     transform: translateY(0px);
     opacity: 0.6;
   }
   to {
-    transform: translateY(-25px);
+    transform: translateY(-20px);
     opacity: 1;
   }
+}
+
+@keyframes yourAnimation{
+  from {
+      box-shadow: -3px 5px 10px rgba(88, 78, 78, 0.555);
+      }
+  to {
+      box-shadow: -3px 5px 10px rgba(247, 9, 207, 0.507);
+      }
 }

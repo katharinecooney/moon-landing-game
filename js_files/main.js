@@ -194,12 +194,12 @@ function main() {
       </div>`
     );
 
-    let replayEasyButton = document.querySelector('.replay-easy');
-    replayEasyButton.addEventListener('click', function() {
-      buildGameScreen('easy');
-      clapping.pause();
-      clapping.currentTime = 0;
-    });
+    // let replayEasyButton = document.querySelector('.replay-easy');
+    // replayEasyButton.addEventListener('click', function() {
+    //   buildGameScreen('easy');
+    //   clapping.pause();
+    //   clapping.currentTime = 0;
+    // });
 
     let replayHardButton = document.querySelector('.replay-hard');
     replayHardButton.addEventListener('click', function () {
