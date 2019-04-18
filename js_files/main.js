@@ -87,7 +87,7 @@ function main() {
     
 
     let bgImage = new Image();
-    bgImage.src = "../images/seamless-space.PNG";
+    bgImage.src = "./images/seamless-space.PNG";
 
     var backgroundImage = {
       img: bgImage,
