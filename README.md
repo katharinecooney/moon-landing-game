@@ -80,6 +80,10 @@ function main() {
 
   }
 
+  function buildWinScreen() {
+
+  }
+
 }
 ```
 
@@ -108,7 +112,11 @@ Rocket.prototype.update = function() {
 }
 
 
-Rocket.prototype.setDirection = function() {
+Rocket.prototype.setYdirection = function() {
+
+}
+
+Rocket.prototype.setXdirection = function() {
 
 }
 
@@ -118,12 +126,17 @@ Rocket.prototype.countStarsCaught = function() {
 }
 
 
+Rocket.prototype.countCometsStruck = function() {
+
+}
+
+
 Rocket.prototype.checkForStars() = function() {
 
 }
 
 
-Rocket.prototype.victory() = function() {
+Rocket.prototype.checkForComets() = function() {
 
 }
 ```
@@ -152,6 +165,44 @@ Star.prototype.update = function() {
 }
 ```
 
+### comet.js
+
+``` javascript
+function Comet() {
+  this.canvas; 
+  this.ctx;
+  this.size;
+  this.x;
+  this.y;
+  this.speed;
+  this.direction;
+  this.image;
+  this.image.src;
+}
+
+Comet.prototype.draw = function() {
+   
+}
+
+Comet.prototype.update = function() {
+ 
+}
+```
+
+### moon.js
+
+```javascript
+function Moon() {
+  this.canvas; 
+  this.ctx;
+  this.size;
+}
+
+Moon.prototype.draw = function() {
+  
+}
+```
+
 ## States y States Transitions
 Definition of the different states and their transition (transition functions)
 
@@ -168,26 +219,34 @@ Definition of the different states and their transition (transition functions)
   - buildGameOverScreen()
   - buildSplashScreen(if replay)
 
+- winScreen
+  - buildWinScreen()
+  - buildSplashSc
 
 
 ## Task
 Task definition in order of priority
 
-- Main - buildDom
-- Main - buildSplashScreen
-- Main - buildGameScreen
-- Main - buildGameOverScreen
-- Main - addEventListener
-- Game - create startLoop
-- Main - add state transitions
-- Rocket - create Rocket
-- Rocket - move Rocket
-- Star - create Star
-- Star - move Star
-- Rocket - check 'collisions'
-- Game - add starCounter
-- Game - add countdown timer
-- Game - check win
+- Main - create buildDom() function
+- Main - use buildDom() to build splash screen
+- Main - use buildDom() to build game screen
+- Main - use buildDom() to build gameOver screen
+- Main - use buildDom() to build win screen
+- Game - create Game constructor (properties - star, comet, rocket, level, timeRemaining, gameOver)
+- Game - create startLoop() function 
+- Game - nest loop function inside startLoop()
+- Rocket - create Rocket constructor
+- Rocket - create draw() method on Rocket's prototype
+- Rocket - create update() method on Rocket's prototype
+- Star - create Star constructor
+- Star - create draw() method on Star's prototype
+- Star - create update() method on Star's prototype
+- Comet - create Comet constructor
+- Comet - create draw() method on Comet's prototype
+- Comet - create update() method on Comet's prototype
+- Game - create clear() method on Game's prototype to clear canvas from last frame
+- Game - create draw() method on Game's prototype to draw rocket, stars, and comets
+- Game - create update() method on Game's prototype to update position of rocket, stars, and comets
 
 ## Links
 
